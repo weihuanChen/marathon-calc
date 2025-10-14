@@ -1,0 +1,48 @@
+{
+  "title": "Calculadora de Ritmo de Maratón",
+  "description": "Calcula tu ritmo, tiempo o distancia de carrera",
+  "modes": {
+    "pace": "Calcular Ritmo",
+    "time": "Calcular Tiempo",
+    "distance": "Calcular Distancia"
+  },
+  "labels": {
+    "distance": "Distancia",
+    "time": "Tiempo",
+    "pace": "Ritmo",
+    "hours": "Horas",
+    "minutes": "Minutos",
+    "seconds": "Segundos"
+  },
+  "units": {
+    "metric": "Métrico (km)",
+    "imperial": "Imperial (mi)",
+    "perKm": "/ km",
+    "perMi": "/ mi"
+  },
+  "presets": {
+    "title": "Distancias Rápidas",
+    "5k": "5K",
+    "10k": "10K",
+    "halfMarathon": "Media Maratón",
+    "marathon": "Maratón",
+    "50k": "50K"
+  },
+  "splits": {
+    "title": "Tiempos Parciales",
+    "splitNumber": "Parcial #",
+    "pacePerSplit": "Ritmo",
+    "cumulativeTime": "Tiempo Acumulado"
+  },
+  "indicators": {
+    "distance": "Distancia",
+    "time": "Tiempo",
+    "easy": "Fácil",
+    "fast": "Rápido"
+  },
+  "placeholders": {
+    "enterDistance": "Ingrese la distancia",
+    "enterTime": "Ingrese el tiempo",
+    "enterPace": "Ingrese el ritmo"
+  }
+}

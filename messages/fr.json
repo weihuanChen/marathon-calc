@@ -1,0 +1,48 @@
+{
+  "title": "Calculateur d'Allure Marathon",
+  "description": "Calculez votre allure, temps ou distance de course",
+  "modes": {
+    "pace": "Calculer l'Allure",
+    "time": "Calculer le Temps",
+    "distance": "Calculer la Distance"
+  },
+  "labels": {
+    "distance": "Distance",
+    "time": "Temps",
+    "pace": "Allure",
+    "hours": "Heures",
+    "minutes": "Minutes",
+    "seconds": "Secondes"
+  },
+  "units": {
+    "metric": "Métrique (km)",
+    "imperial": "Impérial (mi)",
+    "perKm": "/ km",
+    "perMi": "/ mi"
+  },
+  "presets": {
+    "title": "Distances Rapides",
+    "5k": "5K",
+    "10k": "10K",
+    "halfMarathon": "Semi-Marathon",
+    "marathon": "Marathon",
+    "50k": "50K"
+  },
+  "splits": {
+    "title": "Temps Intermédiaires",
+    "splitNumber": "Split #",
+    "pacePerSplit": "Allure",
+    "cumulativeTime": "Temps Cumulé"
+  },
+  "indicators": {
+    "distance": "Distance",
+    "time": "Temps",
+    "easy": "Facile",
+    "fast": "Rapide"
+  },
+  "placeholders": {
+    "enterDistance": "Entrez la distance",
+    "enterTime": "Entrez le temps",
+    "enterPace": "Entrez l'allure"
+  }
+}

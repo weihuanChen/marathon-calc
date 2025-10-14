@@ -1,0 +1,48 @@
+{
+  "title": "马拉松配速计算器",
+  "description": "计算您的跑步配速、时间或距离",
+  "modes": {
+    "pace": "计算配速",
+    "time": "计算时间",
+    "distance": "计算距离"
+  },
+  "labels": {
+    "distance": "距离",
+    "time": "时间",
+    "pace": "配速",
+    "hours": "小时",
+    "minutes": "分钟",
+    "seconds": "秒"
+  },
+  "units": {
+    "metric": "公制 (公里)",
+    "imperial": "英制 (英里)",
+    "perKm": "/ 公里",
+    "perMi": "/ 英里"
+  },
+  "presets": {
+    "title": "快速距离",
+    "5k": "5公里",
+    "10k": "10公里",
+    "halfMarathon": "半程马拉松",
+    "marathon": "全程马拉松",
+    "50k": "50公里"
+  },
+  "splits": {
+    "title": "分段配速",
+    "splitNumber": "分段 #",
+    "pacePerSplit": "配速",
+    "cumulativeTime": "累积时间"
+  },
+  "indicators": {
+    "distance": "距离",
+    "time": "时间",
+    "easy": "轻松",
+    "fast": "快速"
+  },
+  "placeholders": {
+    "enterDistance": "输入距离",
+    "enterTime": "输入时间",
+    "enterPace": "输入配速"
+  }
+}

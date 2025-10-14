@@ -1,0 +1,48 @@
+{
+  "title": "Marathon Pace Calculator",
+  "description": "Calculate your running pace, time, or distance",
+  "modes": {
+    "pace": "Calculate Pace",
+    "time": "Calculate Time",
+    "distance": "Calculate Distance"
+  },
+  "labels": {
+    "distance": "Distance",
+    "time": "Time",
+    "pace": "Pace",
+    "hours": "Hours",
+    "minutes": "Minutes",
+    "seconds": "Seconds"
+  },
+  "units": {
+    "metric": "Metric (km)",
+    "imperial": "Imperial (mi)",
+    "perKm": "/ km",
+    "perMi": "/ mi"
+  },
+  "presets": {
+    "title": "Quick Distances",
+    "5k": "5K",
+    "10k": "10K",
+    "halfMarathon": "Half Marathon",
+    "marathon": "Marathon",
+    "50k": "50K"
+  },
+  "splits": {
+    "title": "Split Times",
+    "splitNumber": "Split #",
+    "pacePerSplit": "Pace",
+    "cumulativeTime": "Cumulative Time"
+  },
+  "indicators": {
+    "distance": "Distance",
+    "time": "Time",
+    "easy": "Easy",
+    "fast": "Fast"
+  },
+  "placeholders": {
+    "enterDistance": "Enter distance",
+    "enterTime": "Enter time",
+    "enterPace": "Enter pace"
+  }
+}
