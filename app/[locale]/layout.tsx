@@ -39,6 +39,12 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   return {
     title: titles[locale] || titles.en,
     description: descriptions[locale] || descriptions.en,
+    icons: {
+      icon: [
+        { url: '/favicon.ico', type: 'image/x-icon' }
+      ],
+      shortcut: ['/favicon.ico']
+    }
   };
 }
 

@@ -78,8 +78,9 @@ export function PaceChart({ intensity, color }: PaceChartProps) {
   const width = 200;
   const height = 50;
 
+  // 初始为稳定直线，避免 SSR 与 CSR 随机差异导致水合不一致
   const [currentPath, setCurrentPath] = useState(() =>
-    generateRandomHeartbeatPath(intensity, width, height)
+    generateFlatPath(width, height)
   );
   const pathLengthValue = useMotionValue(1);
   const prevIntensity = useRef(intensity);
@@ -94,20 +95,7 @@ export function PaceChart({ intensity, color }: PaceChartProps) {
 
     // 两阶段动画序列
     const runAnimation = async () => {
-      // 阶段 1: 压平为直线（0.3秒）
-      const flatPath = generateFlatPath(width, height);
-
-      // 使用 Spring 动画压平
-      await animate(0, 1, {
-        duration: 0.3,
-        ease: 'easeInOut',
-        onUpdate: () => {
-          // 直接更新路径为平线
-          setCurrentPath(flatPath);
-        }
-      });
-
-      // 阶段 2: 生成新的随机路径并展开（0.8秒）
+      // 阶段 1: 先生成新的随机路径
       const newPath = generateRandomHeartbeatPath(intensity, width, height);
       setCurrentPath(newPath);
 
