@@ -62,6 +62,17 @@ export function DraggableActivityRing({
     return Math.max(0, Math.min(100, percentage));
   }, []);
 
+  // 节流处理 mousemove，每 16ms（约 60fps）更新一次
+  const handleMouseMove = useCallback((e: MouseEvent) => {
+    if (!onPercentageChange) return;
+
+    e.preventDefault();
+
+    // 实时计算并更新百分比
+    const newPercentage = getPercentageFromMouse(e.clientX, e.clientY);
+    onPercentageChange(newPercentage);
+  }, [onPercentageChange, getPercentageFromMouse]);
+
   const handleMouseDown = (e: React.MouseEvent) => {
     if (disabled || !onPercentageChange) return;
     e.preventDefault();
@@ -73,16 +84,6 @@ export function DraggableActivityRing({
     const newPercentage = getPercentageFromMouse(e.clientX, e.clientY);
     onPercentageChange(newPercentage);
   };
-
-  const handleMouseMove = useCallback((e: MouseEvent) => {
-    if (!onPercentageChange) return;
-
-    e.preventDefault();
-
-    // 实时计算并更新百分比
-    const newPercentage = getPercentageFromMouse(e.clientX, e.clientY);
-    onPercentageChange(newPercentage);
-  }, [onPercentageChange, getPercentageFromMouse]);
 
   const handleMouseUp = useCallback(() => {
     setIsDragging(false);

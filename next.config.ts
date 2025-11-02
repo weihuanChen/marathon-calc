@@ -4,7 +4,28 @@ import createNextIntlPlugin from 'next-intl/plugin';
 const withNextIntl = createNextIntlPlugin('./i18n.ts');
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  /* 性能优化配置 */
+  
+  // 启用 Gzip 压缩
+  compress: true,
+  
+  // 生产环境优化
+  productionBrowserSourceMaps: false,  // 减少 bundle 大小
+  
+  // 图片优化
+  images: {
+    formats: ['image/avif', 'image/webp'],
+    sizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+  },
+
+  // 性能监控
+  experimental: {
+    // 优化包导入，只包含 framer-motion 中实际使用的部分
+    optimizePackageImports: ["framer-motion"],
+  },
+
+  // 其他性能选项
+  swcMinify: true,  // 使用 SWC 进行代码压缩（比 Terser 更快）
 };
 
 export default withNextIntl(nextConfig);

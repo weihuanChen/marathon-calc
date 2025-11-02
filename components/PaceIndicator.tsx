@@ -36,9 +36,6 @@ export function PaceIndicator({ paceSeconds, unit, paceDisplay }: PaceIndicatorP
           style={{
             backgroundImage: `linear-gradient(to bottom right, ${colors.from}, ${colors.to})`
           }}
-          animate={{
-            backgroundImage: `linear-gradient(to bottom right, ${colors.from}, ${colors.to})`
-          }}
           transition={{ duration: 0.6 }}
         >
           {paceDisplay}

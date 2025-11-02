@@ -21,7 +21,7 @@ function generateRandomHeartbeatPath(
   height: number
 ): string {
   const points: [number, number][] = [];
-  const numPoints = 35; // 增加点数让曲线更丰富
+  const numPoints = 20; // 从 35 降低到 20，减少计算量
   const centerY = height / 2;
 
   // 根据强度计算波动幅度
@@ -55,20 +55,12 @@ function generateRandomHeartbeatPath(
     points.push([x, clampedY]);
   }
 
-  // 使用三次贝塞尔曲线创建平滑路径
+  // 使用线性插值而非三次贝塞尔曲线，提高性能
   let pathData = `M ${points[0][0]},${points[0][1]}`;
 
-  for (let i = 0; i < points.length - 1; i++) {
-    const [x1, y1] = points[i];
-    const [x2, y2] = points[i + 1];
-
-    // 计算控制点
-    const cp1x = x1 + (x2 - x1) / 3;
-    const cp1y = y1;
-    const cp2x = x1 + (2 * (x2 - x1)) / 3;
-    const cp2y = y2;
-
-    pathData += ` C ${cp1x},${cp1y} ${cp2x},${cp2y} ${x2},${y2}`;
+  for (let i = 1; i < points.length; i++) {
+    const [x, y] = points[i];
+    pathData += ` L ${x},${y}`;
   }
 
   return pathData;

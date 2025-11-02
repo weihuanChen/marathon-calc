@@ -25,34 +25,6 @@ export function ConnectionLines({ color }: ConnectionLinesProps) {
           <stop offset="50%" stopColor={color} stopOpacity="0.9" />
           <stop offset="100%" stopColor={color} stopOpacity="0.6" />
         </linearGradient>
-
-        {/* 流动动画渐变 */}
-        <linearGradient id="flowGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stopColor={color} stopOpacity="0">
-            <animate
-              attributeName="offset"
-              values="0;1"
-              dur="2s"
-              repeatCount="indefinite"
-            />
-          </stop>
-          <stop offset="50%" stopColor={color} stopOpacity="0.8">
-            <animate
-              attributeName="offset"
-              values="0.5;1.5"
-              dur="2s"
-              repeatCount="indefinite"
-            />
-          </stop>
-          <stop offset="100%" stopColor={color} stopOpacity="0">
-            <animate
-              attributeName="offset"
-              values="1;2"
-              dur="2s"
-              repeatCount="indefinite"
-            />
-          </stop>
-        </linearGradient>
       </defs>
 
       {/* 背景连接线（静态） */}
@@ -70,13 +42,13 @@ export function ConnectionLines({ color }: ConnectionLinesProps) {
       {/* 流动效果线 */}
       <motion.path
         d={pathData}
-        stroke="url(#flowGradient)"
+        stroke={color}
         strokeWidth="0.5"
         fill="none"
         strokeLinecap="round"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 0.8 }}
-        transition={{ duration: 1 }}
+        initial={{ opacity: 0, pathLength: 0 }}
+        animate={{ opacity: [0.3, 0.8, 0.3], pathLength: [0, 1, 0] }}
+        transition={{ duration: 2, ease: 'easeInOut', repeat: Infinity }}
       />
 
       {/* 光晕效果 */}

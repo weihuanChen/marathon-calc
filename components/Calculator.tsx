@@ -91,13 +91,17 @@ export function Calculator() {
       // 同步更新 ref
       currentDistanceRef.current = newResult.distance;
       currentTimeSecondsRef.current = newResult.totalSeconds;
-      
-      // 同步更新配速输入框
-      const paceTime = secondsToTime(newResult.paceSecondsPerUnit);
+    }
+  }, [mode, distance, hours, minutes, seconds, paceMinutes, paceSeconds]);
+
+  // 单独处理配速输入框的同步更新，避免无限循环
+  useEffect(() => {
+    if (mode !== 'pace') {
+      const paceTime = secondsToTime(result.paceSecondsPerUnit);
       setPaceMinutes(paceTime.minutes.toString());
       setPaceSeconds(paceTime.seconds.toString());
     }
-  }, [mode, distance, hours, minutes, seconds, paceMinutes, paceSeconds]);
+  }, [result.paceSecondsPerUnit, mode]);
 
   // 预设距离处理
   const handlePreset = (key: PresetKey) => {
