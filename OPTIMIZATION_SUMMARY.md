@@ -139,10 +139,17 @@ useEffect(() => {
 
 **改动：**
 ```typescript
-// ✅ 添加
+// ✅ 添加（Next.js 15.5.5 兼容版本）
 compress: true,                    // Gzip 压缩
 productionBrowserSourceMaps: false // 减少 bundle 大小
-swcMinify: true,                   // 更快的代码压缩
+images: {
+  formats: ['image/avif', 'image/webp'],
+}
+experimental: {
+  optimizePackageImports: ["framer-motion"],
+}
+
+// 注：swcMinify 和 images.sizes 在 Next.js 15 中已被移除/不支持
 ```
 
 ---
