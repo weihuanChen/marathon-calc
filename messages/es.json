@@ -44,5 +44,63 @@
     "enterDistance": "Ingrese la distancia",
     "enterTime": "Ingrese el tiempo",
     "enterPace": "Ingrese el ritmo"
+  },
+  "faq": {
+    "title": "Preguntas Frecuentes",
+    "howToUse": {
+      "title": "Cómo Usar",
+      "steps": {
+        "0": {
+          "title": "Seleccione el Modo de Cálculo",
+          "description": "Haga clic en uno de los botones superiores para elegir qué desea calcular: ritmo, tiempo o distancia. El campo deshabilitado mostrará el resultado."
+        },
+        "1": {
+          "title": "Ingrese Valores Conocidos",
+          "description": "Complete los campos habilitados con sus datos conocidos. Por ejemplo, al calcular el ritmo, ingrese la distancia y el tiempo."
+        },
+        "2": {
+          "title": "Ver Resultados en Tiempo Real",
+          "description": "El resultado se mostrará automáticamente en el panel central, incluidos anillos dinámicos y el indicador de ritmo."
+        },
+        "3": {
+          "title": "Ajustar Unidades y Ver Parciales",
+          "description": "Use el botón de cambio de unidad para alternar entre métrico e imperial. La tabla de la derecha muestra tiempos parciales por km/milla."
+        }
+      },
+      "tip": {
+        "title": "Consejo",
+        "description": "¡También puedes arrastrar los anillos directamente para ajustar la distancia y el tiempo, y ver los cambios de ritmo en tiempo real!"
+      }
+    },
+    "questions": {
+      "0": {
+        "question": "¿Cómo funciona esta calculadora?",
+        "answer": "Esta calculadora utiliza la fórmula básica de carrera: ritmo = tiempo ÷ distancia. Según el modo seleccionado, calcula el valor desconocido a partir de los otros dos valores conocidos. Todos los cálculos ocurren en tiempo real."
+      },
+      "1": {
+        "question": "¿Qué significa el ritmo?",
+        "answer": "El ritmo es el tiempo requerido por kilómetro (o milla), generalmente mostrado en formato 'minutos'segundos''. Por ejemplo, 5'30'' significa 5 minutos y 30 segundos por kilómetro. Un ritmo más bajo significa correr más rápido."
+      },
+      "2": {
+        "question": "¿Cómo cambio entre métrico e imperial?",
+        "answer": "Haga clic en el botón de cambio de unidad (con el icono de ciclo) en la parte superior derecha del área de entrada para alternar entre métrico (km) e imperial (mi). Todos los valores se convertirán automáticamente."
+      },
+      "3": {
+        "question": "¿Qué son los tiempos parciales?",
+        "answer": "La tabla de tiempos parciales muestra el tiempo acumulado en cada marca de kilómetro (o milla) durante su carrera. Esto es útil para planificar estrategias de ritmo de carrera."
+      },
+      "4": {
+        "question": "¿Qué representan los colores en los anillos?",
+        "answer": "El color del indicador de ritmo central cambia según la intensidad: los colores fríos (azul, cian) indican ritmo fácil, los colores cálidos (naranja, rojo) indican ritmo rápido. Esto te ayuda a evaluar rápidamente la intensidad del entrenamiento."
+      },
+      "5": {
+        "question": "¿Puedo arrastrar los anillos?",
+        "answer": "¡Sí! Tanto los anillos de distancia como de tiempo se pueden arrastrar. Haga clic y arrastre la barra de progreso en el anillo para ajustar los valores en tiempo real. Es una forma divertida de explorar diferentes combinaciones de ritmo."
+      },
+      "6": {
+        "question": "¿Qué distancias admite la calculadora?",
+        "answer": "Puede ingresar cualquier distancia, o usar los botones predefinidos para distancias comunes: 5K, 10K, Media Maratón (21.0975 km), Maratón (42.195 km) y 50K."
+      }
+    }
   }
 }

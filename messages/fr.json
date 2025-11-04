@@ -44,5 +44,63 @@
     "enterDistance": "Entrez la distance",
     "enterTime": "Entrez le temps",
     "enterPace": "Entrez l'allure"
+  },
+  "faq": {
+    "title": "Questions Fréquemment Posées",
+    "howToUse": {
+      "title": "Comment Utiliser",
+      "steps": {
+        "0": {
+          "title": "Sélectionnez le Mode de Calcul",
+          "description": "Cliquez sur l'un des boutons en haut pour choisir ce que vous voulez calculer : allure, temps ou distance. Le champ désactivé affichera le résultat."
+        },
+        "1": {
+          "title": "Entrez les Valeurs Connues",
+          "description": "Remplissez les champs activés avec vos données connues. Par exemple, pour calculer l'allure, entrez la distance et le temps."
+        },
+        "2": {
+          "title": "Consultez les Résultats en Temps Réel",
+          "description": "Le résultat s'affichera automatiquement sur le tableau de bord central, avec des anneaux dynamiques et un indicateur d'allure."
+        },
+        "3": {
+          "title": "Ajustez les Unités et Consultez les Splits",
+          "description": "Utilisez le bouton de basculement d'unité pour passer du métrique à l'impérial. Le tableau à droite affiche les temps intermédiaires par km/mile."
+        }
+      },
+      "tip": {
+        "title": "Astuce",
+        "description": "Vous pouvez également faire glisser les anneaux directement pour ajuster la distance et le temps, et voir les changements d'allure en temps réel !"
+      }
+    },
+    "questions": {
+      "0": {
+        "question": "Comment fonctionne ce calculateur ?",
+        "answer": "Ce calculateur utilise la formule de course de base : allure = temps ÷ distance. En fonction du mode sélectionné, il calcule la valeur inconnue à partir des deux autres valeurs connues. Tous les calculs se font en temps réel."
+      },
+      "1": {
+        "question": "Que signifie l'allure ?",
+        "answer": "L'allure est le temps nécessaire par kilomètre (ou mile), généralement affiché au format 'minutes'secondes''. Par exemple, 5'30'' signifie 5 minutes et 30 secondes par kilomètre. Une allure plus faible signifie une course plus rapide."
+      },
+      "2": {
+        "question": "Comment basculer entre métrique et impérial ?",
+        "answer": "Cliquez sur le bouton de basculement d'unité (avec l'icône de cycle) en haut à droite de la zone de saisie pour passer du métrique (km) à l'impérial (mi). Toutes les valeurs seront converties automatiquement."
+      },
+      "3": {
+        "question": "Que sont les temps intermédiaires ?",
+        "answer": "Le tableau des temps intermédiaires affiche le temps cumulé à chaque repère de kilomètre (ou mile) tout au long de votre course. C'est utile pour planifier des stratégies de course."
+      },
+      "4": {
+        "question": "Que représentent les couleurs sur les anneaux ?",
+        "answer": "La couleur de l'indicateur d'allure central change en fonction de l'intensité : les couleurs froides (bleu, cyan) indiquent une allure facile, les couleurs chaudes (orange, rouge) indiquent une allure rapide. Cela vous aide à évaluer rapidement l'intensité de l'entraînement."
+      },
+      "5": {
+        "question": "Puis-je faire glisser les anneaux ?",
+        "answer": "Oui ! Les anneaux de distance et de temps sont tous deux déplaçables. Cliquez et faites glisser la barre de progression sur l'anneau pour ajuster les valeurs en temps réel. C'est une façon amusante d'explorer différentes combinaisons d'allure."
+      },
+      "6": {
+        "question": "Quelles distances le calculateur prend-il en charge ?",
+        "answer": "Vous pouvez entrer n'importe quelle distance, ou utiliser les boutons prédéfinis pour les distances courantes : 5K, 10K, Semi-Marathon (21,0975 km), Marathon (42,195 km) et 50K."
+      }
+    }
   }
 }

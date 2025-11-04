@@ -1,5 +1,6 @@
 import { useTranslations } from 'next-intl';
 import { Calculator } from '@/components/Calculator';
+import { FAQ } from '@/components/FAQ';
 import { Languages } from 'lucide-react';
 import { Link } from '@/i18n/routing';
 import { locales } from '@/i18n.config';
@@ -26,6 +27,9 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
 
         {/* Calculator Component */}
         <Calculator />
+
+        {/* FAQ and How-to-Use Component */}
+        <FAQ />
 
         {/* Footer */}
         <footer className="mt-16 text-center text-gray-500 dark:text-gray-400 text-sm">

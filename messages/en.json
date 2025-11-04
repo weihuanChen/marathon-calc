@@ -44,5 +44,63 @@
     "enterDistance": "Enter distance",
     "enterTime": "Enter time",
     "enterPace": "Enter pace"
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "howToUse": {
+      "title": "How to Use",
+      "steps": {
+        "0": {
+          "title": "Select Calculation Mode",
+          "description": "Click one of the top buttons to choose what you want to calculate: pace, time, or distance. The disabled input field will show the result."
+        },
+        "1": {
+          "title": "Enter Known Values",
+          "description": "Fill in the enabled input fields with your known data. For example, when calculating pace, enter distance and time."
+        },
+        "2": {
+          "title": "View Real-time Results",
+          "description": "The result will automatically display on the central dashboard, including dynamic rings and pace indicator."
+        },
+        "3": {
+          "title": "Adjust Units and View Splits",
+          "description": "Use the unit toggle button to switch between metric and imperial. The table on the right shows split times per km/mile."
+        }
+      },
+      "tip": {
+        "title": "Pro Tip",
+        "description": "You can also drag the rings directly to adjust distance and time, and see pace changes in real-time!"
+      }
+    },
+    "questions": {
+      "0": {
+        "question": "How does this calculator work?",
+        "answer": "This calculator uses the basic running formula: pace = time ÷ distance. Based on your selected mode, it calculates the unknown value from the other two known values. All calculations happen in real-time."
+      },
+      "1": {
+        "question": "What does pace mean?",
+        "answer": "Pace is the time required per kilometer (or mile), typically displayed in 'minutes'seconds'' format. For example, 5'30'' means 5 minutes and 30 seconds per kilometer. Lower pace means faster running."
+      },
+      "2": {
+        "question": "How do I switch between metric and imperial?",
+        "answer": "Click the unit toggle button (with the cycle icon) in the top-right of the input area to switch between metric (km) and imperial (mi). All values will convert automatically."
+      },
+      "3": {
+        "question": "What are split times?",
+        "answer": "The split times table shows cumulative time at each kilometer (or mile) marker throughout your run. This is useful for planning race pacing strategies."
+      },
+      "4": {
+        "question": "What do the colors on the rings represent?",
+        "answer": "The central pace indicator's color changes based on pace intensity: cool colors (blue, cyan) indicate easy pace, warm colors (orange, red) indicate fast pace. This helps you quickly assess training intensity."
+      },
+      "5": {
+        "question": "Can I drag the rings?",
+        "answer": "Yes! Both distance and time rings are draggable. Click and drag the progress bar on the ring to adjust values in real-time. It's a fun way to explore different pace combinations."
+      },
+      "6": {
+        "question": "What distances does the calculator support?",
+        "answer": "You can enter any distance, or use the preset buttons for common distances: 5K, 10K, Half Marathon (21.0975 km), Marathon (42.195 km), and 50K."
+      }
+    }
   }
 }
