@@ -43,6 +43,7 @@ export function Calculator() {
   // 用于拖动时追踪当前值的 ref
   const currentDistanceRef = useRef<number>(42.195);
   const currentTimeSecondsRef = useRef<number>(12600);
+  const previousModeRef = useRef<CalculationMode>('pace');
 
   // 计算结果
   const [result, setResult] = useState({
@@ -94,14 +95,16 @@ export function Calculator() {
     }
   }, [mode, distance, hours, minutes, seconds, paceMinutes, paceSeconds]);
 
-  // 单独处理配速输入框的同步更新，避免无限循环
+  // 当模式改变时，同步配速输入框（仅在切换到 time 或 distance 模式时）
   useEffect(() => {
-    if (mode !== 'pace') {
+    // 仅在模式从 pace 切换到其他模式时，才更新配速输入框
+    if (mode !== 'pace' && previousModeRef.current === 'pace') {
       const paceTime = secondsToTime(result.paceSecondsPerUnit);
       setPaceMinutes(paceTime.minutes.toString());
       setPaceSeconds(paceTime.seconds.toString());
     }
-  }, [result.paceSecondsPerUnit, mode]);
+    previousModeRef.current = mode;
+  }, [mode, result.paceSecondsPerUnit]);
 
   // 预设距离处理
   const handlePreset = (key: PresetKey) => {
