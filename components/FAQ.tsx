@@ -12,23 +12,12 @@ export function FAQ() {
     setOpenIndex(openIndex === index ? null : index);
   };
 
-  // FAQ数量通过检查翻译key是否存在来确定
-  const faqItems = [];
-  let i = 0;
-  while (true) {
-    try {
-      const question = t(`questions.${i}.question`);
-      const answer = t(`questions.${i}.answer`);
-      if (question && answer) {
-        faqItems.push({ question, answer });
-        i++;
-      } else {
-        break;
-      }
-    } catch {
-      break;
-    }
-  }
+  // 固定的FAQ问题数量（防止无限循环）
+  const FAQ_COUNT = 7;
+  const faqItems = Array.from({ length: FAQ_COUNT }, (_, i) => ({
+    question: t(`questions.${i}.question`),
+    answer: t(`questions.${i}.answer`),
+  }));
 
   return (
     <div className="w-full max-w-6xl mx-auto space-y-8 p-6">
