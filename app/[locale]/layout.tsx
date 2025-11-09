@@ -5,6 +5,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { Analytics } from '@vercel/analytics/react';
 import "../globals.css";
 import { locales } from '@/i18n.config';
+import { LOCALE_TITLES, LOCALE_DESCRIPTIONS } from '@/lib/metadata';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,23 +24,9 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
 
-  const titles: Record<string, string> = {
-    en: 'Marathon Pace Calculator',
-    zh: '马拉松配速计算器',
-    fr: 'Calculateur d\'Allure Marathon',
-    es: 'Calculadora de Ritmo de Maratón'
-  };
-
-  const descriptions: Record<string, string> = {
-    en: 'Calculate your running pace, time, or distance with an interactive dashboard',
-    zh: '使用交互式仪表板计算您的跑步配速、时间或距离',
-    fr: 'Calculez votre allure, temps ou distance de course avec un tableau de bord interactif',
-    es: 'Calcula tu ritmo, tiempo o distancia de carrera con un panel interactivo'
-  };
-
   return {
-    title: titles[locale] || titles.en,
-    description: descriptions[locale] || descriptions.en,
+    title: LOCALE_TITLES[locale] || LOCALE_TITLES.en,
+    description: LOCALE_DESCRIPTIONS[locale] || LOCALE_DESCRIPTIONS.en,
     icons: {
       icon: [
         { url: '/favicon.ico', type: 'image/x-icon' }

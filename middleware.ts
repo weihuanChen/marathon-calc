@@ -4,5 +4,10 @@ import { routing } from './i18n.config';
 export default createMiddleware(routing);
 
 export const config = {
-  matcher: ['/((?!api|_next/static|_next/image|favicon.ico).*)']
+  matcher: [
+    // 优化: 只匹配 locale 前缀的路由，减少中间件执行频率
+    '/(en|zh|fr|es)/:path*',
+    // 匹配根路由
+    '/',
+  ],
 };
