@@ -1,3 +1,4 @@
+import { Link } from '@/i18n/routing';
 import { useTranslations } from 'next-intl';
 import { Calculator } from '@/components/Calculator';
 import { FAQ } from '@/components/FAQ';
@@ -30,9 +31,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         <FAQ />
 
         {/* Footer */}
-        <footer className="mt-16 text-center text-gray-500 dark:text-gray-400 text-sm">
-          <p>Marathon Pace Calculator - Built with Next.js & Framer Motion</p>
-        </footer>
+        <HomeFooter locale={locale} />
       </div>
     </main>
   );
@@ -46,4 +45,39 @@ function HomeTitle() {
 function HomeDescription() {
   const t = useTranslations();
   return <>{t('description')}</>;
+}
+
+function HomeFooter({ locale }: { locale: string }) {
+  const legalT = useTranslations('legal');
+
+  return (
+    <footer className="mt-16 text-center text-sm text-gray-500 dark:text-gray-400">
+      <p className="mb-3">Marathon Pace Calculator - Built with Next.js & Framer Motion</p>
+      <div className="flex flex-wrap items-center justify-center gap-3">
+        <Link
+          href="/user-service"
+          locale={locale}
+          className="font-medium text-lime-700 underline underline-offset-4 transition hover:text-lime-600 dark:text-lime-300 dark:hover:text-lime-200"
+        >
+          {legalT('userServiceAgreement')}
+        </Link>
+        <span aria-hidden className="text-gray-400">•</span>
+        <Link
+          href="/privacy-policy"
+          locale={locale}
+          className="font-medium text-lime-700 underline underline-offset-4 transition hover:text-lime-600 dark:text-lime-300 dark:hover:text-lime-200"
+        >
+          {legalT('privacyPolicy')}
+        </Link>
+        <span aria-hidden className="text-gray-400">•</span>
+        <Link
+          href="/support"
+          locale={locale}
+          className="font-medium text-lime-700 underline underline-offset-4 transition hover:text-lime-600 dark:text-lime-300 dark:hover:text-lime-200"
+        >
+          {legalT('supportFeedback')}
+        </Link>
+      </div>
+    </footer>
+  );
 }

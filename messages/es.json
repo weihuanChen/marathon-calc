@@ -102,5 +102,379 @@
         "answer": "Puede ingresar cualquier distancia, o usar los botones predefinidos para distancias comunes: 5K, 10K, Media Maratón (21.0975 km), Maratón (42.195 km) y 50K."
       }
     }
+  },
+  "legal": {
+    "userServiceAgreement": "Acuerdo de Servicio de Usuario",
+    "privacyPolicy": "Política de Privacidad",
+    "supportFeedback": "Soporte y Comentarios"
+  },
+  "disclaimer": {
+    "title": "Aviso de traducción",
+    "description": "Este acuerdo se ofrece en varios idiomas para su comodidad. Si alguna traducción difiere de la versión en inglés, prevalece el texto en inglés.",
+    "note": "La versión en inglés prevalece"
+  },
+  "userService": {
+    "meta": {
+      "title": "Acuerdo de Servicio de Usuario | Marathon Pace Calculator",
+      "description": "Términos de uso de marathoncalc.com y sus herramientas de cálculo de ritmo.",
+      "kicker": "Términos legales"
+    },
+    "pageTitle": "Acuerdo de Servicio de Usuario",
+    "subtitle": "Lea estas condiciones antes de usar {domain} y los servicios que ofrecemos.",
+    "backToHome": "Volver al calculador",
+    "effectiveDate": "Fecha de vigencia: {date}",
+    "intro": "Bienvenido a {domain} (el \"Sitio\", \"nosotros\"). Este Acuerdo de Servicio de Usuario (\"Acuerdo\") rige su acceso a nuestras herramientas en línea, contenido informativo y servicios relacionados. Al acceder o usar los Servicios, acepta las condiciones siguientes.",
+    "sections": {
+      "agreement": {
+        "title": "1. Acuerdo y modificaciones",
+        "items": {
+          "acceptance": {
+            "title": "Aceptación de las condiciones",
+            "description": "Este Acuerdo constituye el acuerdo completo entre usted y el Sitio y reemplaza cualquier término previo relacionado con su uso de los Servicios."
+          },
+          "modifications": {
+            "title": "Modificaciones",
+            "description": "Podemos actualizar este Acuerdo en cualquier momento publicando los cambios en {domain}. El uso continuo después de las actualizaciones implica la aceptación de los términos revisados."
+          }
+        }
+      },
+      "services": {
+        "title": "2. Descripción de los servicios",
+        "items": {
+          "scope": {
+            "title": "Alcance de los servicios",
+            "description": "El Sitio proporciona herramientas en línea, calculadoras, contenido informativo y servicios de red relacionados para apoyar sus necesidades de entrenamiento o planificación."
+          },
+          "changes": {
+            "title": "Cambios en el servicio",
+            "description": "Podemos cambiar, suspender o descontinuar cualquier aspecto de los Servicios (incluidas funciones, bases de datos o contenido) en cualquier momento sin aviso previo."
+          },
+          "reliance": {
+            "title": "Uso informativo",
+            "description": "Los Servicios y sus resultados se brindan solo con fines informativos o de apoyo. No garantizamos la precisión, integridad o confiabilidad de los resultados."
+          }
+        }
+      },
+      "responsibilities": {
+        "title": "3. Responsabilidades del usuario",
+        "items": {
+          "lawfulUse": {
+            "title": "Uso legal",
+            "description": "Usted acepta usar los Servicios solo para los fines permitidos por este Acuerdo y las leyes o regulaciones aplicables."
+          },
+          "prohibitedContent": {
+            "title": "Contenido prohibido",
+            "description": "No debe ingresar, transmitir ni publicar contenido que:",
+            "bullets": [
+              "Viole leyes aplicables o ponga en peligro la seguridad pública;",
+              "Sea insultante, difamatorio, obsceno, violento o incite a actividades delictivas;",
+              "Infrinja derechos de propiedad intelectual, privacidad, reputación u otros derechos legales de terceros."
+            ]
+          },
+          "prohibitedActivities": {
+            "title": "Actividades prohibidas",
+            "description": "No debe usar los Servicios para:",
+            "bullets": [
+              "Interferir o interrumpir los Servicios o los servidores y redes relacionados;",
+              "Intentar obtener acceso no autorizado a cualquier parte del Sitio, sistema o red;",
+              "Transmitir datos que contengan virus, gusanos, malware o código destructivo;",
+              "Realizar actividad automatizada excesiva que sobrecargue nuestra infraestructura."
+            ]
+          },
+          "indemnification": {
+            "title": "Indemnización",
+            "description": "Usted es responsable del contenido que envía y acepta indemnizar y eximir al Sitio de cualquier reclamación derivada de su incumplimiento de este Acuerdo o de la ley aplicable."
+          }
+        }
+      },
+      "privacy": {
+        "title": "4. Privacidad y datos",
+        "items": {
+          "collection": {
+            "title": "Recopilación de datos",
+            "description": "Podemos recopilar información personal y no personal para proporcionar, mantener y mejorar los Servicios."
+          },
+          "policy": {
+            "title": "Política de privacidad",
+            "description": "Revise nuestra Política de privacidad por separado para conocer cómo recopilamos, usamos y protegemos su información."
+          },
+          "cookies": {
+            "title": "Registros de acceso y cookies",
+            "description": "Podemos recopilar automáticamente datos no personales (como dirección IP, tipo de navegador o información del dispositivo) para análisis y seguridad, y usar cookies para mejorar su experiencia."
+          }
+        }
+      },
+      "disclaimers": {
+        "title": "5. Descargos de responsabilidad",
+        "items": {
+          "asIs": {
+            "title": "Servicio \"tal cual\"",
+            "description": "Los Servicios se proporcionan \"tal cual\" y \"según disponibilidad\" sin garantías de ningún tipo, incluidas las garantías de comerciabilidad, idoneidad para un propósito particular o no infracción."
+          },
+          "reliance": {
+            "title": "Riesgos de uso",
+            "description": "Cualquier material u otra información obtenida mediante los Servicios se usa a su propia discreción y riesgo. No somos responsables por pérdida de datos, errores de programas o fallos del sistema derivados del uso o dependencia de los Servicios."
+          },
+          "thirdParty": {
+            "title": "Enlaces de terceros",
+            "description": "Los enlaces a sitios web de terceros se ofrecen solo como conveniencia. No somos responsables del contenido, la seguridad o las prácticas de sitios de terceros."
+          }
+        }
+      },
+      "liability": {
+        "title": "6. Limitación de responsabilidad",
+        "items": {
+          "limitation": {
+            "title": "Limitación",
+            "description": "En la máxima medida permitida por la ley, el Sitio no es responsable de daños directos, indirectos, incidentales, especiales, punitivos o consecuentes derivados del uso o imposibilidad de uso de los Servicios."
+          },
+          "cap": {
+            "title": "Límite de responsabilidad",
+            "description": "Si se determina la responsabilidad del Sitio, el total no excederá los 100 USD o el monto que haya pagado por los Servicios en los seis meses anteriores a la reclamación, lo que sea menor."
+          }
+        }
+      },
+      "intellectualProperty": {
+        "title": "7. Propiedad intelectual",
+        "items": {
+          "ownership": {
+            "title": "Titularidad",
+            "description": "Todo el contenido del Sitio (incluidos textos, gráficos, logotipos, software y herramientas) es propiedad del Sitio o de sus proveedores y está protegido por las leyes de propiedad intelectual aplicables."
+          },
+          "license": {
+            "title": "Licencia limitada",
+            "description": "Recibe una licencia limitada, no exclusiva e intransferible para acceder y usar los Servicios de acuerdo con este Acuerdo. No puede copiar, modificar, vender, alquilar, distribuir, realizar ingeniería inversa ni descompilar ningún contenido o software."
+          }
+        }
+      },
+      "governingLaw": {
+        "title": "8. Ley aplicable y jurisdicción",
+        "items": {
+          "law": {
+            "title": "Ley aplicable",
+            "description": "Este Acuerdo se rige por las leyes de la República Popular China, sin considerar los principios de conflicto de leyes."
+          },
+          "disputes": {
+            "title": "Resolución de disputas",
+            "description": "Las disputas derivadas de este Acuerdo se abordarán primero mediante negociación de buena fe. Si no se resuelven, las partes se someten a los tribunales competentes de Hangzhou, China."
+          },
+          "language": {
+            "title": "Idioma de referencia",
+            "description": "Este Acuerdo está redactado en inglés. Se pueden proporcionar traducciones para su conveniencia, pero en caso de discrepancia, prevalece la versión en inglés."
+          }
+        }
+      },
+      "contact": {
+        "title": "9. Información de contacto",
+        "items": {
+          "email": {
+            "title": "Correo de contacto",
+            "description": "Si tiene preguntas sobre este Acuerdo, contáctenos en {email}."
+          }
+        }
+      }
+    },
+    "contactCallout": {
+      "title": "¿Necesita aclaraciones?",
+      "description": "Con gusto explicaremos cualquier parte de este Acuerdo. Para preguntas relacionadas con su uso de {domain}, escríbanos a {email}."
+    }
+  },
+  "privacyPolicy": {
+    "meta": {
+      "title": "Política de Privacidad | Marathon Pace Calculator",
+      "description": "Cómo marathoncalc.com maneja analíticas, cookies y correos de contacto.",
+      "kicker": "Privacidad"
+    },
+    "pageTitle": "Política de Privacidad",
+    "subtitle": "Cómo manejamos los datos en {domain} manteniendo la herramienta ligera.",
+    "backToHome": "Volver al calculador",
+    "lastUpdated": "Última actualización: {date}",
+    "intro": "Recopilamos solo lo mínimo para ejecutar el calculador y responder cuando nos escribes. Esta página explica qué se recopila, por qué y tus opciones.",
+    "sections": {
+      "collection": {
+        "title": "1. Qué recopilamos",
+        "items": {
+          "usage": {
+            "title": "Analítica básica de uso",
+            "description": "Métricas agregadas como páginas vistas y el tipo general de dispositivo/navegador para entender el uso general. No almacenamos ubicación precisa ni perfiles de comportamiento."
+          },
+          "cookies": {
+            "title": "Cookies y almacenamiento local",
+            "description": "Cookies o almacenamiento local esenciales guardan preferencias como unidades e idioma. Las herramientas de analítica pueden establecer sus propias cookies."
+          },
+          "contact": {
+            "title": "Correos que nos envías",
+            "description": "Si escribes a {email}, recibimos tu dirección de correo y el contenido que envías para poder responder. No usamos formularios ni rastreadores invisibles."
+          }
+        }
+      },
+      "use": {
+        "title": "2. Cómo usamos los datos",
+        "items": {
+          "operate": {
+            "title": "Operar el servicio",
+            "description": "Ejecutar el calculador, renderizar páginas y mantener correctos los cálculos de ritmo."
+          },
+          "improve": {
+            "title": "Mejorar funciones",
+            "description": "Priorizar correcciones y mejoras basadas en patrones de uso anónimos y comentarios."
+          },
+          "security": {
+            "title": "Seguridad y prevención de abusos",
+            "description": "Vigilar picos de tráfico inusuales, errores o usos indebidos para mantener estable la infraestructura."
+          }
+        }
+      },
+      "thirdParties": {
+        "title": "3. Servicios de terceros",
+        "items": {
+          "infrastructure": {
+            "title": "Alojamiento y entrega",
+            "description": "El sitio se ejecuta en Vercel; los registros estándar pueden incluir dirección IP y agente de usuario para fiabilidad y seguridad."
+          },
+          "analytics": {
+            "title": "Analíticas",
+            "description": "Analíticas ligeras (p. ej., Vercel Analytics) miden uso anónimo. No vendemos datos ni creamos perfiles publicitarios."
+          },
+          "communications": {
+            "title": "Correo electrónico",
+            "description": "El correo lo gestionan tu proveedor y el nuestro cuando escribes. Evita compartir información sensible por correo."
+          }
+        }
+      },
+      "controls": {
+        "title": "4. Tus opciones",
+        "items": {
+          "analytics": {
+            "title": "Limitar analíticas",
+            "description": "Navegadores o bloqueadores orientados a la privacidad pueden restringir los scripts de analítica. El calculador principal funciona sin ellos."
+          },
+          "cookies": {
+            "title": "Controlar cookies",
+            "description": "Puedes borrar cookies o almacenamiento local; tus preferencias de idioma o unidades podrían restablecerse."
+          },
+          "contact": {
+            "title": "Gestionar correos",
+            "description": "Puedes solicitar la eliminación de correos anteriores escribiendo a {email}. Una vez borrados, no conservaremos tu historial."
+          }
+        }
+      },
+      "retention": {
+        "title": "5. Conservación y seguridad",
+        "items": {
+          "duration": {
+            "title": "Tiempo de conservación",
+            "description": "Las analíticas agregadas se conservan para observar tendencias. Los correos de soporte se guardan solo mientras sean necesarios para responder y seguir problemas repetidos."
+          },
+          "security": {
+            "title": "Medidas de protección",
+            "description": "Evitamos recopilar datos personales innecesarios, usamos HTTPS y limitamos el acceso a las herramientas operativas."
+          },
+          "children": {
+            "title": "Menores",
+            "description": "El servicio no está dirigido a menores de 13 años. Si eres tutor y crees que un menor nos contactó, escríbenos."
+          }
+        }
+      },
+      "updates": {
+        "title": "6. Actualizaciones de esta política",
+        "items": {
+          "changes": {
+            "title": "Cambios",
+            "description": "Si la política cambia, actualizaremos la fecha y publicaremos la nueva versión en {domain}."
+          },
+          "contact": {
+            "title": "Preguntas",
+            "description": "Escribe a {email} para cualquier pregunta o solicitud sobre privacidad."
+          }
+        }
+      }
+    },
+    "contactCallout": {
+      "title": "¿Hablamos?",
+      "description": "Envía un correo a {email} con preguntas de privacidad o solicitudes de eliminación de mensajes que enviaste a {domain}."
+    }
+  },
+  "support": {
+    "meta": {
+      "title": "Soporte y Comentarios | Marathon Pace Calculator",
+      "description": "Cómo contactar al mantenedor en solitario para ayuda, reportes o ideas.",
+      "kicker": "Soporte"
+    },
+    "pageTitle": "Soporte y Comentarios",
+    "subtitle": "¿Problemas en {domain}? Soy el único responsable y responderé directamente.",
+    "backToHome": "Volver al calculador",
+    "intro": "Gracias por usar {domain}. Construyo esta herramienta para corredores y priorizo cambios según comentarios reales. El correo es la mejor forma de contactarme.",
+    "sections": {
+      "contact": {
+        "title": "Empieza aquí",
+        "items": {
+          "email": {
+            "title": "Correo",
+            "description": "Escríbeme a {email} con tu duda o idea. Se agradecen enlaces o capturas."
+          },
+          "responseTime": {
+            "title": "Tiempo de respuesta",
+            "description": "Normalmente respondo en 24-48 horas, a menudo más rápido entre semana."
+          },
+          "languages": {
+            "title": "Idiomas",
+            "description": "Puedes escribir en inglés, español o chino. Responderé en inglés por defecto para evitar errores de traducción."
+          }
+        }
+      },
+      "bugReports": {
+        "title": "Informar un error",
+        "items": {
+          "details": {
+            "title": "Incluye si puedes:",
+            "bullets": [
+              "Dispositivo y navegador (ej.: iPhone 14 + Safari, o Chrome en Windows).",
+              "Pasos para reproducir el problema.",
+              "Lo esperado vs. lo que sucedió.",
+              "Capturas o mensajes de error si es posible."
+            ]
+          },
+          "expectation": {
+            "title": "Nota de privacidad",
+            "description": "No recojo registros de diagnóstico automáticamente. Solo comparte lo que te sientas cómodo enviando por correo."
+          }
+        }
+      },
+      "featureRequests": {
+        "title": "Sugerir una función",
+        "items": {
+          "context": {
+            "title": "Cuéntame el contexto",
+            "description": "Cuéntame el escenario o necesidad de entrenamiento que quieres resolver para diseñar el flujo correcto."
+          },
+          "examples": {
+            "title": "Ejemplos útiles",
+            "bullets": [
+              "Una distancia o unidad que uses con frecuencia.",
+              "Forma de compartir/exportar que necesites (captura, CSV, copiar texto).",
+              "Cualquier necesidad de accesibilidad (contraste, uso con teclado, lector de pantalla)."
+            ]
+          }
+        }
+      },
+      "triage": {
+        "title": "Qué pasa después",
+        "items": {
+          "process": {
+            "title": "Priorización",
+            "description": "Agrupo los mensajes por gravedad e impacto para corredores y corrijo primero los bloqueos antes de nuevas funciones."
+          },
+          "updates": {
+            "title": "Seguimiento",
+            "description": "Si acepto una solicitud, lo confirmaré por correo y te avisaré cuando se publique o si necesito más detalles."
+          }
+        }
+      }
+    },
+    "contactCallout": {
+      "title": "Conversemos",
+      "description": "Escríbeme a {email}. Reviso la bandeja a diario y priorizo todo lo que te impida usar el calculador."
+    }
   }
 }

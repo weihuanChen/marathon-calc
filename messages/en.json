@@ -102,5 +102,379 @@
         "answer": "You can enter any distance, or use the preset buttons for common distances: 5K, 10K, Half Marathon (21.0975 km), Marathon (42.195 km), and 50K."
       }
     }
+  },
+  "legal": {
+    "userServiceAgreement": "User Service Agreement",
+    "privacyPolicy": "Privacy Policy",
+    "supportFeedback": "Support & Feedback"
+  },
+  "disclaimer": {
+    "title": "Translation notice",
+    "description": "This agreement is provided in multiple languages for convenience. If any translation differs from the English version, the English text will prevail.",
+    "note": "English version prevails"
+  },
+  "userService": {
+    "meta": {
+      "title": "User Service Agreement | Marathon Pace Calculator",
+      "description": "Terms of use for marathoncalc.com and its online pace calculator tools.",
+      "kicker": "Legal Terms"
+    },
+    "pageTitle": "User Service Agreement",
+    "subtitle": "Please read these terms before using {domain} and the services we provide.",
+    "backToHome": "Back to calculator",
+    "effectiveDate": "Effective Date: {date}",
+    "intro": "Welcome to {domain} (the \"Website,\" \"we,\" or \"us\"). This User Service Agreement (\"Agreement\") governs your access to and use of our online tools, informational content, and related services. By accessing or using the Services, you agree to the terms below.",
+    "sections": {
+      "agreement": {
+        "title": "1. Agreement and Modifications",
+        "items": {
+          "acceptance": {
+            "title": "Acceptance of Terms",
+            "description": "This Agreement constitutes the entire agreement between you and the Website and supersedes any prior terms governing your use of the Services."
+          },
+          "modifications": {
+            "title": "Modifications",
+            "description": "We may update this Agreement at any time by posting changes on {domain}. Your continued use after updates constitutes acceptance of the revised terms."
+          }
+        }
+      },
+      "services": {
+        "title": "2. Description of Services",
+        "items": {
+          "scope": {
+            "title": "Scope of Services",
+            "description": "The Website provides online tools, calculators, informational content, and related network services to support your training or planning needs."
+          },
+          "changes": {
+            "title": "Service Changes",
+            "description": "We may change, suspend, or discontinue any aspect of the Services (including features, databases, or content) at any time without prior notice."
+          },
+          "reliance": {
+            "title": "Informational Use",
+            "description": "The Services and outputs are provided for informational or auxiliary purposes only. We do not guarantee accuracy, completeness, or reliability of any results."
+          }
+        }
+      },
+      "responsibilities": {
+        "title": "3. User Responsibilities",
+        "items": {
+          "lawfulUse": {
+            "title": "Lawful Use",
+            "description": "You agree to use the Services only for purposes permitted by this Agreement and applicable laws or regulations."
+          },
+          "prohibitedContent": {
+            "title": "Prohibited Content",
+            "description": "You will not input, transmit, or publish content that:",
+            "bullets": [
+              "Violates any applicable laws or endangers public security.",
+              "Is insulting, defamatory, obscene, violent, or incites criminal activity.",
+              "Infringes intellectual property, privacy, reputation, or other legal rights of third parties."
+            ]
+          },
+          "prohibitedActivities": {
+            "title": "Prohibited Activities",
+            "description": "You will not use the Services to:",
+            "bullets": [
+              "Interfere with or disrupt the Services or related servers and networks.",
+              "Attempt to gain unauthorized access to any part of the Website, system, or network.",
+              "Transmit data containing viruses, worms, malware, or destructive code.",
+              "Engage in excessive automated activity that overburdens our infrastructure."
+            ]
+          },
+          "indemnification": {
+            "title": "Indemnification",
+            "description": "You are responsible for content you submit and agree to indemnify and hold the Website harmless from any claims arising from your violation of this Agreement or applicable law."
+          }
+        }
+      },
+      "privacy": {
+        "title": "4. Privacy and Data",
+        "items": {
+          "collection": {
+            "title": "Data Collection",
+            "description": "We may collect personal and non-personal information to provide, maintain, and improve the Services."
+          },
+          "policy": {
+            "title": "Privacy Policy",
+            "description": "Please review our separate Privacy Policy for details on how we collect, use, and protect your information."
+          },
+          "cookies": {
+            "title": "Access Records and Cookies",
+            "description": "We may automatically collect non-personal data (such as IP address, browser type, or device information) for analytics and security, and use cookies to enhance your experience."
+          }
+        }
+      },
+      "disclaimers": {
+        "title": "5. Disclaimers",
+        "items": {
+          "asIs": {
+            "title": "\"As Is\" Basis",
+            "description": "The Services are provided on an \"as is\" and \"as available\" basis without warranties of any kind, including merchantability, fitness for a particular purpose, or non-infringement."
+          },
+          "reliance": {
+            "title": "Reliance Risk",
+            "description": "Any material or information obtained through the Services is at your own discretion and risk. We are not liable for data loss, program errors, or system failures resulting from use or reliance."
+          },
+          "thirdParty": {
+            "title": "Third-Party Links",
+            "description": "Links to third-party websites are provided for convenience only. We are not responsible for the content, security, or practices of third-party sites."
+          }
+        }
+      },
+      "liability": {
+        "title": "6. Limitation of Liability",
+        "items": {
+          "limitation": {
+            "title": "Limitation",
+            "description": "To the fullest extent permitted by law, the Website is not liable for any direct, indirect, incidental, special, punitive, or consequential damages arising out of the use or inability to use the Services."
+          },
+          "cap": {
+            "title": "Liability Cap",
+            "description": "If the Website is found liable for any claim, total liability will not exceed USD 100 or the amount you paid for the Services in the six months preceding the claim, whichever is less."
+          }
+        }
+      },
+      "intellectualProperty": {
+        "title": "7. Intellectual Property",
+        "items": {
+          "ownership": {
+            "title": "Ownership",
+            "description": "All content on the Website (including text, graphics, logos, software, and tools) is owned by the Website or its suppliers and protected by applicable intellectual property laws."
+          },
+          "license": {
+            "title": "Limited License",
+            "description": "You receive a limited, non-exclusive, non-transferable license to access and use the Services in accordance with this Agreement. You may not copy, modify, sell, rent, distribute, reverse engineer, or decompile any part of the content or software."
+          }
+        }
+      },
+      "governingLaw": {
+        "title": "8. Governing Law and Jurisdiction",
+        "items": {
+          "law": {
+            "title": "Governing Law",
+            "description": "This Agreement is governed by the laws of the People's Republic of China, without regard to conflict of law principles."
+          },
+          "disputes": {
+            "title": "Dispute Resolution",
+            "description": "Disputes arising from this Agreement shall first be addressed through good-faith negotiation. If unresolved, both parties submit to the competent courts in Hangzhou, China."
+          },
+          "language": {
+            "title": "Controlling Language",
+            "description": "This Agreement is prepared in English. Translations may be provided for convenience, but in the event of any discrepancy, the English version controls."
+          }
+        }
+      },
+      "contact": {
+        "title": "9. Contact Information",
+        "items": {
+          "email": {
+            "title": "Contact Email",
+            "description": "If you have questions about this Agreement, please contact us at {email}."
+          }
+        }
+      }
+    },
+    "contactCallout": {
+      "title": "Need clarification?",
+      "description": "We are happy to explain any part of this Agreement. Reach us at {email} with questions related to your use of {domain}."
+    }
+  },
+  "privacyPolicy": {
+    "meta": {
+      "title": "Privacy Policy | Marathon Pace Calculator",
+      "description": "How marathoncalc.com handles analytics, cookies, and contact emails.",
+      "kicker": "Privacy"
+    },
+    "pageTitle": "Privacy Policy",
+    "subtitle": "How we handle data on {domain} and keep the tool lean.",
+    "backToHome": "Back to calculator",
+    "lastUpdated": "Last updated: {date}",
+    "intro": "We collect minimal information to run the calculator and respond when you reach out. This page explains what is collected, why, and what choices you have.",
+    "sections": {
+      "collection": {
+        "title": "1. What we collect",
+        "items": {
+          "usage": {
+            "title": "Basic usage analytics",
+            "description": "Aggregated metrics such as page views and general device/browser type to understand overall usage. We do not store precise locations or behavioral profiles."
+          },
+          "cookies": {
+            "title": "Cookies and local storage",
+            "description": "Essential cookies or local storage keep preferences like units and language working. Analytics tools may set their own cookies."
+          },
+          "contact": {
+            "title": "Email you send us",
+            "description": "If you email {email}, we receive your email address and the content you provide so we can reply. We do not run contact forms or invisible trackers."
+          }
+        }
+      },
+      "use": {
+        "title": "2. How we use data",
+        "items": {
+          "operate": {
+            "title": "Operate the service",
+            "description": "Run the calculator, render pages, and keep the pace math accurate."
+          },
+          "improve": {
+            "title": "Improve features",
+            "description": "Prioritize fixes and enhancements based on anonymous usage patterns and feedback."
+          },
+          "security": {
+            "title": "Security and abuse prevention",
+            "description": "Monitor for unusual traffic spikes, errors, or misuse to keep infrastructure stable."
+          }
+        }
+      },
+      "thirdParties": {
+        "title": "3. Third-party services",
+        "items": {
+          "infrastructure": {
+            "title": "Hosting and delivery",
+            "description": "The site runs on Vercel. Standard server logs may include IP address and user agent to ensure reliability and security."
+          },
+          "analytics": {
+            "title": "Analytics",
+            "description": "Lightweight analytics (e.g., Vercel Analytics) measure anonymous usage. We do not sell data or build advertising profiles."
+          },
+          "communications": {
+            "title": "Email",
+            "description": "Email is handled by your provider and ours when you write in. Please avoid sharing sensitive information."
+          }
+        }
+      },
+      "controls": {
+        "title": "4. Your choices",
+        "items": {
+          "analytics": {
+            "title": "Limit analytics",
+            "description": "Privacy-focused browsers or blockers can restrict analytics scripts. Core calculator features work without them."
+          },
+          "cookies": {
+            "title": "Control cookies",
+            "description": "You can clear cookies or local storage. Preferences like language or units may reset afterward."
+          },
+          "contact": {
+            "title": "Manage emails",
+            "description": "You can request deletion of prior emails by writing to {email}. Once removed, we will not retain your message history."
+          }
+        }
+      },
+      "retention": {
+        "title": "5. Retention and security",
+        "items": {
+          "duration": {
+            "title": "How long we keep data",
+            "description": "Aggregated analytics are kept for trend analysis. Support emails are retained only while needed to respond and track recurring issues."
+          },
+          "security": {
+            "title": "Protective measures",
+            "description": "We avoid collecting unnecessary personal data, use HTTPS, and limit access to operational tooling."
+          },
+          "children": {
+            "title": "Children",
+            "description": "This service is not directed to children under 13. If you are a guardian and believe a child has contacted us, please email us."
+          }
+        }
+      },
+      "updates": {
+        "title": "6. Updates to this policy",
+        "items": {
+          "changes": {
+            "title": "Policy changes",
+            "description": "If this policy changes, we will update the date above and publish the revised version on {domain}."
+          },
+          "contact": {
+            "title": "Questions",
+            "description": "Contact {email} with any privacy questions or requests."
+          }
+        }
+      }
+    },
+    "contactCallout": {
+      "title": "Need to talk?",
+      "description": "Email {email} with privacy questions or deletion requests for messages you have sent to {domain}."
+    }
+  },
+  "support": {
+    "meta": {
+      "title": "Support & Feedback | Marathon Pace Calculator",
+      "description": "How to reach the solo maintainer for help, bug reports, or feature ideas.",
+      "kicker": "Support"
+    },
+    "pageTitle": "Support & Feedback",
+    "subtitle": "Need help with {domain}? I'm the solo maintainer and will reply personally.",
+    "backToHome": "Back to calculator",
+    "intro": "Thanks for using {domain}. I build this tool for runners and prioritize changes based on real feedback. Email is the best way to reach me.",
+    "sections": {
+      "contact": {
+        "title": "Start here",
+        "items": {
+          "email": {
+            "title": "Email",
+            "description": "Write to {email} with your question or idea. Links or screenshots are welcome."
+          },
+          "responseTime": {
+            "title": "Response time",
+            "description": "I usually reply within 24-48 hours and often faster on weekdays."
+          },
+          "languages": {
+            "title": "Languages",
+            "description": "Feel free to write in English or Chinese. Replies default to English to avoid translation mistakes."
+          }
+        }
+      },
+      "bugReports": {
+        "title": "Reporting a bug",
+        "items": {
+          "details": {
+            "title": "Please include:",
+            "bullets": [
+              "Device and browser (e.g., iPhone 14 on Safari, Chrome on Windows).",
+              "Steps to reproduce the issue.",
+              "What you expected versus what actually happened.",
+              "Screenshots or copied error messages if available."
+            ]
+          },
+          "expectation": {
+            "title": "Privacy note",
+            "description": "I do not collect diagnostic logs automatically. Only share information you are comfortable sending over email."
+          }
+        }
+      },
+      "featureRequests": {
+        "title": "Suggesting a feature",
+        "items": {
+          "context": {
+            "title": "Share the context",
+            "description": "Tell me the scenario or training need you are solving so I can design the right workflow."
+          },
+          "examples": {
+            "title": "Helpful examples",
+            "bullets": [
+              "A preset distance or unit you use often.",
+              "Export/share flows you need (screenshots, CSV, copy text).",
+              "Any accessibility needs (contrast, keyboard use, screen readers)."
+            ]
+          }
+        }
+      },
+      "triage": {
+        "title": "What happens next",
+        "items": {
+          "process": {
+            "title": "Triage",
+            "description": "I group messages by severity and runner impact, then ship fixes before new features."
+          },
+          "updates": {
+            "title": "Status updates",
+            "description": "If I accept a request, I will confirm by email and let you know when it ships or if I need more detail."
+          }
+        }
+      }
+    },
+    "contactCallout": {
+      "title": "Talk to me",
+      "description": "Email {email}. I check the inbox daily and prioritize anything that blocks you from using the calculator."
+    }
   }
 }

@@ -102,5 +102,379 @@
         "answer": "你可以输入任何距离，或使用预设按钮快速选择常见距离：5K、10K、半程马拉松（21.0975公里）、全程马拉松（42.195公里）和50K。"
       }
     }
+  },
+  "legal": {
+    "userServiceAgreement": "用户服务协议",
+    "privacyPolicy": "隐私政策",
+    "supportFeedback": "支持与反馈"
+  },
+  "disclaimer": {
+    "title": "翻译说明",
+    "description": "本协议提供多语言版本以方便阅读，如与英文版存在任何差异或歧义，请以英文版为准。",
+    "note": "如有歧义，以英文版为准"
+  },
+  "userService": {
+    "meta": {
+      "title": "用户服务协议 | Marathon Pace Calculator",
+      "description": "marathoncalc.com 及其在线配速工具的使用条款。",
+      "kicker": "法律条款"
+    },
+    "pageTitle": "用户服务协议",
+    "subtitle": "在使用 {domain} 及我们提供的服务前，请先阅读并同意以下条款。",
+    "backToHome": "返回计算器",
+    "effectiveDate": "生效日期：{date}",
+    "intro": "欢迎访问 {domain}（“本网站”、“我们”）。本《用户服务协议》（“本协议”）适用于您对我们的线上工具、信息内容及相关服务的访问和使用。访问或使用即表示您同意本协议的全部条款。",
+    "sections": {
+      "agreement": {
+        "title": "1. 协议与修改",
+        "items": {
+          "acceptance": {
+            "title": "条款接受",
+            "description": "本协议构成您与本网站之间的完整协议，并取代此前与服务使用相关的任何约定。"
+          },
+          "modifications": {
+            "title": "修改权",
+            "description": "我们可能随时通过在 {domain} 公示更新本协议。更新后继续使用服务即视为接受变更后的条款。"
+          }
+        }
+      },
+      "services": {
+        "title": "2. 服务说明",
+        "items": {
+          "scope": {
+            "title": "服务范围",
+            "description": "本网站提供线上工具、计算器、信息内容及相关网络服务，以支持您的训练或计划需求。"
+          },
+          "changes": {
+            "title": "服务调整",
+            "description": "我们可在不另行通知的情况下随时变更、暂停或终止服务的任何部分（包括功能、数据库或内容）。"
+          },
+          "reliance": {
+            "title": "仅供参考",
+            "description": "服务及其输出仅供参考或辅助使用，我们不对任何结果的准确性、完整性或可靠性作出保证。"
+          }
+        }
+      },
+      "responsibilities": {
+        "title": "3. 用户责任",
+        "items": {
+          "lawfulUse": {
+            "title": "合法使用",
+            "description": "您承诺仅为本协议及适用法律法规允许的目的使用本服务。"
+          },
+          "prohibitedContent": {
+            "title": "禁止内容",
+            "description": "您不得输入、传输或发布以下内容：",
+            "bullets": [
+              "违反任何适用法律法规或危害公共安全的内容；",
+              "侮辱、诽谤、淫秽、暴力或煽动犯罪的内容；",
+              "侵犯第三方知识产权、隐私权、名誉权或其他合法权益的内容。"
+            ]
+          },
+          "prohibitedActivities": {
+            "title": "禁止行为",
+            "description": "您不得利用本服务：",
+            "bullets": [
+              "干扰或破坏服务及其所连接的服务器、网络；",
+              "尝试未经授权访问本网站的任何部分、系统或网络；",
+              "传输含有病毒、蠕虫、恶意代码或其他破坏性代码的数据；",
+              "进行过度自动化访问，导致网站基础设施过载。"
+            ]
+          },
+          "indemnification": {
+            "title": "责任承担",
+            "description": "您对所提交的内容自行负责，并同意就因您违反本协议或相关法律而产生的任何索赔向本网站进行赔偿并使其免受损害。"
+          }
+        }
+      },
+      "privacy": {
+        "title": "4. 隐私与数据",
+        "items": {
+          "collection": {
+            "title": "数据收集",
+            "description": "我们可能收集个人及非个人信息，以提供、维护并改进本服务。"
+          },
+          "policy": {
+            "title": "隐私政策",
+            "description": "请查阅我们的独立《隐私政策》，了解我们如何收集、使用和保护您的信息。"
+          },
+          "cookies": {
+            "title": "访问记录与 Cookies",
+            "description": "我们可能自动收集非个人数据（如 IP 地址、浏览器类型、设备信息）用于分析和安全目的，并使用 Cookies 优化体验。"
+          }
+        }
+      },
+      "disclaimers": {
+        "title": "5. 免责声明",
+        "items": {
+          "asIs": {
+            "title": "“按现状”提供",
+            "description": "服务按“现状”和“可用”基础提供，不附带任何明示或默示担保，包括适销性、特定用途适用性或不侵权等担保。"
+          },
+          "reliance": {
+            "title": "使用风险",
+            "description": "通过服务获得的任何资料或信息由您自行决定并承担风险。因使用或依赖导致的数据丢失、程序错误或系统故障，我们不承担责任。"
+          },
+          "thirdParty": {
+            "title": "第三方链接",
+            "description": "网站可能包含第三方链接，仅为方便提供。我们不对第三方网站的内容、安全性或其做法负责。"
+          }
+        }
+      },
+      "liability": {
+        "title": "6. 责任限制",
+        "items": {
+          "limitation": {
+            "title": "限制",
+            "description": "在法律允许的最大范围内，本网站对因使用或无法使用服务而产生的任何直接、间接、附带、特殊、惩罚性或后果性损害不承担责任。"
+          },
+          "cap": {
+            "title": "责任上限",
+            "description": "如本网站被判定承担责任，总赔偿金额不超过100美元或您在索赔前6个月为使用服务支付的费用（以较低者为准）。"
+          }
+        }
+      },
+      "intellectualProperty": {
+        "title": "7. 知识产权",
+        "items": {
+          "ownership": {
+            "title": "所有权",
+            "description": "本网站的全部内容（包括文字、图形、标识、软件和工具等）由本网站或其供应商所有，并受相关知识产权法律保护。"
+          },
+          "license": {
+            "title": "有限许可",
+            "description": "您获得有限的、非独占、不可转让的许可，以本协议允许的方式访问和使用服务。您不得复制、修改、出售、租赁、分发、逆向工程或反编译任何内容或软件。"
+          }
+        }
+      },
+      "governingLaw": {
+        "title": "8. 适用法律与管辖",
+        "items": {
+          "law": {
+            "title": "适用法律",
+            "description": "本协议受中华人民共和国法律管辖并依其解释，不考虑法律冲突原则。"
+          },
+          "disputes": {
+            "title": "争议解决",
+            "description": "因本协议产生的争议应首先友好协商解决；协商不成的，双方同意提交中国杭州的有管辖权法院处理。"
+          },
+          "language": {
+            "title": "语言约定",
+            "description": "本协议以英文制定，如提供其他语言译本仅为方便阅读。如有不一致或争议，以英文版为准。"
+          }
+        }
+      },
+      "contact": {
+        "title": "9. 联系方式",
+        "items": {
+          "email": {
+            "title": "联系邮箱",
+            "description": "如对本协议有任何疑问，请通过 {email} 与我们联系。"
+          }
+        }
+      }
+    },
+    "contactCallout": {
+      "title": "需要进一步说明？",
+      "description": "我们很乐意解答您关于本协议的任何问题。若您在使用 {domain} 时有疑问，请发送邮件至 {email}。"
+    }
+  },
+  "privacyPolicy": {
+    "meta": {
+      "title": "隐私政策 | Marathon Pace Calculator",
+      "description": "marathoncalc.com 如何处理分析、Cookies 以及邮件往来。",
+      "kicker": "隐私"
+    },
+    "pageTitle": "隐私政策",
+    "subtitle": "说明 {domain} 如何处理数据并保持工具精简。",
+    "backToHome": "返回计算器",
+    "lastUpdated": "最后更新：{date}",
+    "intro": "我们仅收集维持计算器运行与回复邮件所需的最少信息。本页说明我们收集什么、用途是什么，以及你的选择。",
+    "sections": {
+      "collection": {
+        "title": "1. 收集哪些信息",
+        "items": {
+          "usage": {
+            "title": "基础使用数据",
+            "description": "用于理解整体使用情况的汇总指标，如页面访问量、设备/浏览器类型等。我们不会保存精确定位或建立行为画像。"
+          },
+          "cookies": {
+            "title": "Cookies 和本地存储",
+            "description": "必要的 Cookies 或本地存储用于保持单位、语言等偏好；分析工具可能会设置自己的 Cookies。"
+          },
+          "contact": {
+            "title": "你发送的邮件",
+            "description": "当你写信到 {email} 时，我们会收到你的邮箱地址和邮件内容以便回复。我们不提供表单或隐形跟踪。"
+          }
+        }
+      },
+      "use": {
+        "title": "2. 数据用途",
+        "items": {
+          "operate": {
+            "title": "运营服务",
+            "description": "运行计算器、渲染页面，并保持配速计算准确。"
+          },
+          "improve": {
+            "title": "改进功能",
+            "description": "基于匿名使用模式和反馈来排优先级、修复或优化。"
+          },
+          "security": {
+            "title": "安全与滥用防范",
+            "description": "监测异常流量、错误或滥用，保障基础设施稳定。"
+          }
+        }
+      },
+      "thirdParties": {
+        "title": "3. 第三方服务",
+        "items": {
+          "infrastructure": {
+            "title": "托管与分发",
+            "description": "网站部署在 Vercel；标准服务器日志可能包含 IP 和 User-Agent，用于可靠性和安全。"
+          },
+          "analytics": {
+            "title": "分析",
+            "description": "轻量分析（如 Vercel Analytics）统计匿名使用情况。我们不出售数据，也不建立广告画像。"
+          },
+          "communications": {
+            "title": "邮件",
+            "description": "当你写信时，邮件由你的提供商和我们的邮箱处理。请避免在邮件中提供敏感信息。"
+          }
+        }
+      },
+      "controls": {
+        "title": "4. 你的选择",
+        "items": {
+          "analytics": {
+            "title": "限制分析",
+            "description": "使用注重隐私的浏览器或屏蔽插件可以限制分析脚本，核心计算功能仍可正常使用。"
+          },
+          "cookies": {
+            "title": "管理 Cookies",
+            "description": "你可以清理 Cookies 或本地存储，清理后语言、单位等偏好可能会被重置。"
+          },
+          "contact": {
+            "title": "管理邮件",
+            "description": "如需删除之前发送的邮件，请写信到 {email}，删除后我们不会保留你的沟通记录。"
+          }
+        }
+      },
+      "retention": {
+        "title": "5. 保存与安全",
+        "items": {
+          "duration": {
+            "title": "保存时间",
+            "description": "汇总分析数据用于趋势观察；支持邮件仅在回复及跟踪重复问题所需期间保留。"
+          },
+          "security": {
+            "title": "保护措施",
+            "description": "我们尽量不收集不必要的个人数据，使用 HTTPS，并限制运维访问。"
+          },
+          "children": {
+            "title": "未成年人",
+            "description": "本服务不面向 13 岁以下儿童。如监护人认为孩子曾与我们联系，请通过邮件告知。"
+          }
+        }
+      },
+      "updates": {
+        "title": "6. 政策更新",
+        "items": {
+          "changes": {
+            "title": "变更通知",
+            "description": "如有调整，我们会更新上方日期并在 {domain} 发布最新版本。"
+          },
+          "contact": {
+            "title": "问题咨询",
+            "description": "如有隐私问题或请求，请发送邮件至 {email}。"
+          }
+        }
+      }
+    },
+    "contactCallout": {
+      "title": "需要沟通？",
+      "description": "如有隐私问题或希望删除你发送给 {domain} 的邮件，请联系 {email}。"
+    }
+  },
+  "support": {
+    "meta": {
+      "title": "支持与反馈 | Marathon Pace Calculator",
+      "description": "如何联系独立维护者获取帮助、报告问题或提出想法。",
+      "kicker": "支持"
+    },
+    "pageTitle": "支持与反馈",
+    "subtitle": "在 {domain} 遇到问题？我是独立维护者，会亲自回复。",
+    "backToHome": "返回计算器",
+    "intro": "感谢使用 {domain}。我为跑者构建这个工具，并根据真实反馈排定优先级。邮件是联系我的最佳方式。",
+    "sections": {
+      "contact": {
+        "title": "先联系这里",
+        "items": {
+          "email": {
+            "title": "邮箱",
+            "description": "发送邮件至 {email}，若方便可附上链接或截图。"
+          },
+          "responseTime": {
+            "title": "回复时间",
+            "description": "通常会在 24-48 小时内回复，工作日会更快。"
+          },
+          "languages": {
+            "title": "支持语言",
+            "description": "欢迎使用中文或英文留言。为避免歧义，默认以英文回复。"
+          }
+        }
+      },
+      "bugReports": {
+        "title": "报告问题",
+        "items": {
+          "details": {
+            "title": "请尽量包含：",
+            "bullets": [
+              "设备与浏览器（例如：iPhone 14 + Safari，或 Windows 上的 Chrome）。",
+              "复现步骤。",
+              "预期结果与实际结果。",
+              "截图或报错信息（如有）。"
+            ]
+          },
+          "expectation": {
+            "title": "隐私说明",
+            "description": "我不会自动收集诊断日志。仅分享你愿意通过邮件提供的信息即可。"
+          }
+        }
+      },
+      "featureRequests": {
+        "title": "功能建议",
+        "items": {
+          "context": {
+            "title": "分享场景",
+            "description": "告诉我你要解决的训练场景或需求，方便设计合适的流程。"
+          },
+          "examples": {
+            "title": "有用的示例",
+            "bullets": [
+              "你常用的预设距离或单位。",
+              "需要的导出/分享方式（截图、CSV、复制文字等）。",
+              "任何无障碍需求（对比度、键盘操作、读屏器等）。"
+            ]
+          }
+        }
+      },
+      "triage": {
+        "title": "后续流程",
+        "items": {
+          "process": {
+            "title": "优先级",
+            "description": "我会按严重性和对跑者影响归类，先修复阻塞问题，再处理新功能。"
+          },
+          "updates": {
+            "title": "进度反馈",
+            "description": "若采纳你的请求，我会邮件确认，并在上线或需要更多信息时告知。"
+          }
+        }
+      }
+    },
+    "contactCallout": {
+      "title": "直接沟通",
+      "description": "发送邮件到 {email}。我每天查看收件箱，优先处理影响使用的问题。"
+    }
   }
 }
