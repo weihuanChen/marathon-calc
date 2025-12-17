@@ -272,7 +272,11 @@ export function SplitTable({ splits, unit }: SplitTableProps) {
         </div>
       )}
 
-      <div className="overflow-x-auto min-h-[260px] md:min-h-[320px]">
+      <div
+        className={`overflow-x-auto min-h-[320px] md:min-h-[380px] ${
+          viewMode === 'per1' ? 'max-h-[380px] md:max-h-[440px] overflow-y-auto' : ''
+        }`}
+      >
         <table className="w-full">
           <thead>
             <tr className="border-b-2 border-gray-200 dark:border-gray-700">

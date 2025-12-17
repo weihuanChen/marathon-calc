@@ -478,11 +478,9 @@ export function Calculator() {
           </div>
         </div>
 
-        {/* 分段配速表格 */}
+        {/* 分段配速表格（外层不滚动，由内部表格区域单独滚动） */}
         <div className="rounded-2xl p-3 md:p-4 shadow-xl border border-blue-100 bg-gradient-to-br from-white via-white to-blue-50 dark:border-gray-700 dark:bg-gradient-to-br dark:from-gray-900 dark:via-gray-900 dark:to-gray-800">
-          <div className="max-h-[480px] overflow-y-auto">
-            <SplitTable splits={splits} unit={unit} />
-          </div>
+          <SplitTable splits={splits} unit={unit} />
         </div>
       </div>
     </div>
