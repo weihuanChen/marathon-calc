@@ -33,4 +33,4 @@ We may use third-party Service Providers to monitor and analyze the use of our S
 
 If you have any questions about this Privacy Policy, please contact me:
 
-* **By email:** [your-email@example.com]
+* **By email:** support@marathoncalc.com

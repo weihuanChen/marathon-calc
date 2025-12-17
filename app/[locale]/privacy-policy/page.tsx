@@ -4,7 +4,7 @@ import { getTranslations } from 'next-intl/server';
 import { ArrowLeft, ShieldCheck } from 'lucide-react';
 
 const DOMAIN = 'marathoncalc.com';
-const CONTACT_EMAIL = 'shendongloving123@gmail.com';
+const CONTACT_EMAIL = 'support@marathoncalc.com';
 const LAST_UPDATED = 'November 27, 2025';
 
 type SectionItem = {

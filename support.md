@@ -8,7 +8,7 @@ I am building and maintaining this site independently. Whether you've found a bu
 
 Since I run this project alone, I don't have a 24/7 support team, but I check my emails every day.
 
-* **Email:** [your-email@example.com]
+* **Email:** support@marathoncalc.com
 * **Response Time:** Usually within 24-48 hours.
 * **Languages:** Feel free to write in **English** or **Chinese**.
 

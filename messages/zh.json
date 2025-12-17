@@ -20,6 +20,12 @@
     "perKm": "/ 公里",
     "perMi": "/ 英里"
   },
+  "theme": {
+    "toggleToDark": "切换到深色模式",
+    "toggleToLight": "切换到浅色模式",
+    "dark": "深色",
+    "light": "浅色"
+  },
   "presets": {
     "title": "快速距离",
     "5k": "5公里",
@@ -29,10 +35,32 @@
     "50k": "50公里"
   },
   "splits": {
-    "title": "分段配速",
+    "title": "配速计划（可选策略）",
     "splitNumber": "分段 #",
     "pacePerSplit": "配速",
-    "cumulativeTime": "累积时间"
+    "cumulativeTime": "累积时间",
+    "view": {
+      "per1": "每 1 公里",
+      "per5": "每 5 公里",
+      "key": "关键节点"
+    },
+    "summary": {
+      "frontHalf": "前半程",
+      "backHalf": "后半程",
+      "time": "用时",
+      "pace": "平均配速（{unit}）"
+    },
+    "unitLabel": {
+      "km": "每公里",
+      "mi": "每英里"
+    },
+    "lastChunk": {
+      "title": "最后阶段（约 10 公里）",
+      "subtitle": "通常是马拉松决胜段，很多人会在这里分出高下。",
+      "distance": "距离：{distance} {unit}",
+      "time": "用时",
+      "pace": "平均配速（{unit}）"
+    }
   },
   "indicators": {
     "distance": "距离",
@@ -44,6 +72,24 @@
     "enterDistance": "输入距离",
     "enterTime": "输入时间",
     "enterPace": "输入配速"
+  },
+  "strategy": {
+    "label": "配速策略",
+    "even": "匀速 (Even Split)",
+    "negative": "负分段 (Negative Split)",
+    "slightPositive": "轻微正分段",
+    "tenTenTen": "10-10-10 分段执行",
+    "custom": "自定义",
+    "mainSliderLabel": "后半程相对前半程（按每单位快多少秒）",
+    "mainSliderValue": "后半程平均每 {unit} 快 {value} 秒",
+    "advancedShow": "展开高级分段微调",
+    "advancedHide": "收起高级微调",
+    "after5k": "5K 之后：%（+变慢 / -变快）",
+    "after10k": "10K 之后：%（+变慢 / -变快）",
+    "afterHalf": "半程之后：%（+变慢 / -变快）",
+    "after30k": "30K 之后：%（+变慢 / -变快）",
+    "advancedHint": "在关键里程点之后对倍率做细微调整。正数代表略微保守（变慢），负数代表略微进攻（变快）。",
+    "help": "配速策略是可选功能：匀速/负分段更适合有经验或准备充分的跑者，轻微正分段和 10-10-10 往往对大众跑者更友好。"
   },
   "faq": {
     "title": "常见问题",

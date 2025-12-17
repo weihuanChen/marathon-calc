@@ -3,13 +3,14 @@ import { useTranslations } from 'next-intl';
 import { Calculator } from '@/components/Calculator';
 import { FAQ } from '@/components/FAQ';
 import { LanguageSelector } from '@/components/LanguageSelector';
+import { ThemeToggle } from '@/components/ThemeToggle';
 
 export default async function Home({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-lime-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 py-12">
-      <div className="container mx-auto px-4">
+    <main className="min-h-screen bg-gradient-to-br from-lime-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 py-10">
+      <div className="w-full px-2 md:px-4">
         {/* Header with Language Selector */}
         <header className="flex justify-between items-center mb-12">
           <div>
@@ -21,7 +22,10 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
             </p>
           </div>
 
-          <LanguageSelector currentLocale={locale} />
+          <div className="flex items-center gap-3">
+            <LanguageSelector currentLocale={locale} />
+            <ThemeToggle />
+          </div>
         </header>
 
         {/* Calculator Component */}

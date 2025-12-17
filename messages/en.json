@@ -20,6 +20,12 @@
     "perKm": "/ km",
     "perMi": "/ mi"
   },
+  "theme": {
+    "toggleToDark": "Switch to dark mode",
+    "toggleToLight": "Switch to light mode",
+    "dark": "Dark",
+    "light": "Light"
+  },
   "presets": {
     "title": "Quick Distances",
     "5k": "5K",
@@ -29,10 +35,32 @@
     "50k": "50K"
   },
   "splits": {
-    "title": "Split Times",
+    "title": "Pace Plan (optional strategies)",
     "splitNumber": "Split #",
     "pacePerSplit": "Pace",
-    "cumulativeTime": "Cumulative Time"
+    "cumulativeTime": "Cumulative Time",
+    "view": {
+      "per1": "Every 1 km/mi",
+      "per5": "Every 5 km/mi",
+      "key": "Key checkpoints"
+    },
+    "summary": {
+      "frontHalf": "First half",
+      "backHalf": "Second half",
+      "time": "Time",
+      "pace": "Avg pace ({unit})"
+    },
+    "unitLabel": {
+      "km": "per km",
+      "mi": "per mi"
+    },
+    "lastChunk": {
+      "title": "Decisive section (last ~10 km)",
+      "subtitle": "Often where races are won or lost. Keep an eye on this segment.",
+      "distance": "Distance: {distance} {unit}",
+      "time": "Time",
+      "pace": "Avg pace ({unit})"
+    }
   },
   "indicators": {
     "distance": "Distance",
@@ -44,6 +72,24 @@
     "enterDistance": "Enter distance",
     "enterTime": "Enter time",
     "enterPace": "Enter pace"
+  },
+  "strategy": {
+    "label": "Pacing strategy",
+    "even": "Even Split",
+    "negative": "Negative Split",
+    "slightPositive": "Slight Positive",
+    "tenTenTen": "10-10-10 (conservative-middle-finish)",
+    "custom": "Custom",
+    "mainSliderLabel": "Second half vs first half (by seconds per unit)",
+    "mainSliderValue": "{value}s {unit} faster in second half",
+    "advancedShow": "Advanced split fine-tuning",
+    "advancedHide": "Hide advanced tuning",
+    "after5k": "After 5K: % slower (+) / faster (-)",
+    "after10k": "After 10K: % slower (+) / faster (-)",
+    "afterHalf": "After Half: % slower (+) / faster (-)",
+    "after30k": "After 30K: % slower (+) / faster (-)",
+    "advancedHint": "Fine-tune pace after key checkpoints. Positive values make segments slower, negative values make them slightly faster.",
+    "help": "Pacing strategies are optional. Even/negative splits suit experienced or conservative racers, slight positive and 10-10-10 are often friendlier for most amateur runners."
   },
   "faq": {
     "title": "Frequently Asked Questions",

@@ -22,7 +22,7 @@ export function FAQ() {
   return (
     <div className="w-full max-w-6xl mx-auto space-y-8 p-6">
       {/* 使用说明 */}
-      <section className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-xl">
+      <section className="rounded-2xl p-8 shadow-xl border border-lime-100 bg-gradient-to-br from-white via-white to-lime-50 dark:border-gray-700 dark:bg-gradient-to-br dark:from-gray-900 dark:via-gray-900 dark:to-gray-800">
         <div className="flex items-center gap-3 mb-6">
           <BookOpen className="text-lime-500" size={32} />
           <h2 className="text-3xl font-bold bg-gradient-to-r from-lime-400 to-blue-500 bg-clip-text text-transparent">
@@ -64,7 +64,7 @@ export function FAQ() {
       </section>
 
       {/* FAQ */}
-      <section className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-xl">
+      <section className="rounded-2xl p-8 shadow-xl border border-blue-100 bg-gradient-to-br from-white via-white to-blue-50 dark:border-gray-700 dark:bg-gradient-to-br dark:from-gray-900 dark:via-gray-900 dark:to-gray-800">
         <div className="flex items-center gap-3 mb-6">
           <HelpCircle className="text-blue-500" size={32} />
           <h2 className="text-3xl font-bold bg-gradient-to-r from-blue-500 to-lime-400 bg-clip-text text-transparent">
@@ -106,4 +106,3 @@ export function FAQ() {
     </div>
   );
 }
-

@@ -4,7 +4,7 @@ import { getTranslations } from 'next-intl/server';
 import { ArrowLeft, MessageCircleHeart } from 'lucide-react';
 
 const DOMAIN = 'marathoncalc.com';
-const CONTACT_EMAIL = 'shendongloving123@gmail.com';
+const CONTACT_EMAIL = 'support@marathoncalc.com';
 
 type SectionItem = {
   title: string;

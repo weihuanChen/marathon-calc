@@ -12,7 +12,8 @@ import {
   getPresetDistance,
   PresetKey,
   getRingPercentage,
-  calculateSplits,
+  calculateStrategySplits,
+  SplitStrategy,
 } from '@/lib/calculations';
 import { formatNumber } from '@/lib/utils';
 import { DraggableActivityRing } from './DraggableActivityRing';
@@ -39,6 +40,17 @@ export function Calculator() {
   const [seconds, setSeconds] = useState<string>('0');
   const [paceMinutes, setPaceMinutes] = useState<string>('5');
   const [paceSeconds, setPaceSeconds] = useState<string>('0');
+
+  // 分段策略相关
+  const [splitStrategy, setSplitStrategy] = useState<SplitStrategy>('even');
+  // 主滑杆：后半程比前半程快 X 秒 / 每单位
+  const [splitStrengthSeconds, setSplitStrengthSeconds] = useState<number>(10);
+  // 高级微调展开
+  const [showAdvancedSplits, setShowAdvancedSplits] = useState<boolean>(false);
+  const [fineTuneAfter5k, setFineTuneAfter5k] = useState<number>(0);
+  const [fineTuneAfter10k, setFineTuneAfter10k] = useState<number>(0);
+  const [fineTuneAfterHalf, setFineTuneAfterHalf] = useState<number>(0);
+  const [fineTuneAfter30k, setFineTuneAfter30k] = useState<number>(0);
 
   // 用于拖动时追踪当前值的 ref
   const currentDistanceRef = useRef<number>(42.195);
@@ -160,8 +172,21 @@ export function Calculator() {
   const distancePercentage = getRingPercentage(result.distance, 50);
   const timePercentage = getRingPercentage(result.totalSeconds / 3600, 5);
 
-  // 分段数据
-  const splits = calculateSplits(result.distance, result.paceSecondsPerUnit, unit);
+  // 分段数据（基于策略的倍率模型）
+  const splits =
+    result.distance > 0 && result.totalSeconds > 0
+      ? calculateStrategySplits(result.distance, result.totalSeconds, {
+          strategy: splitStrategy,
+          unit,
+          strengthSeconds: splitStrengthSeconds,
+          fineTunePercent: {
+            after5k: fineTuneAfter5k || undefined,
+            after10k: fineTuneAfter10k || undefined,
+            afterHalf: fineTuneAfterHalf || undefined,
+            after30k: fineTuneAfter30k || undefined,
+          },
+        })
+      : [];
 
   // 计算配速强度和颜色（用于连接线）
   const paceSecondsPerKm = unit === 'mi' ? convertPace(result.paceSecondsPerUnit, 'mi', 'km') : result.paceSecondsPerUnit;
@@ -169,7 +194,7 @@ export function Calculator() {
   const colors = getPaceColor(intensity);
 
   return (
-    <div className="w-full max-w-6xl mx-auto space-y-12 p-6">
+    <div className="w-full space-y-10 px-2 md:px-4 lg:px-6">
       {/* 模式选择器 */}
       <div className="flex justify-center gap-4">
         {(['pace', 'time', 'distance'] as CalculationMode[]).map((m) => (
@@ -219,10 +244,10 @@ export function Calculator() {
         />
       </div>
 
-      {/* 输入区域和分段配速表格 - 并排布局 */}
-      <div className="grid grid-cols-1 xl:grid-cols-2 gap-8">
+      {/* 输入区域和配速计划表格 - 并排布局（桌面端稍微给右侧更多宽度） */}
+      <div className="grid grid-cols-1 xl:grid-cols-[1.1fr_0.9fr] gap-8">
         {/* 输入区域 */}
-        <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-xl space-y-6">
+        <div className="rounded-2xl p-4 md:p-6 shadow-xl space-y-6 border border-lime-100 bg-gradient-to-br from-white via-white to-lime-50 dark:border-gray-700 dark:bg-gradient-to-br dark:from-gray-900 dark:via-gray-900 dark:to-gray-800">
           <div className="flex justify-between items-center">
             <h3 className="text-xl font-bold">{t('title')}</h3>
             <button
@@ -347,11 +372,115 @@ export function Calculator() {
               />
             </div>
           </div>
+
+          {/* 分段策略选择 */}
+          <div className="border-t border-gray-200 dark:border-gray-700 pt-4 mt-2 space-y-4">
+            <div className="flex items-center justify-between gap-4">
+              <label className="text-sm font-medium flex items-center gap-1">
+                <span>{t('strategy.label')}</span>
+                <span
+                  className="inline-flex items-center justify-center w-4 h-4 rounded-full bg-gray-200 dark:bg-gray-700 text-[10px] text-gray-700 dark:text-gray-200 cursor-help"
+                  title={t('strategy.help')}
+                >
+                  ?
+                </span>
+              </label>
+              <select
+                value={splitStrategy}
+                onChange={(e) => setSplitStrategy(e.target.value as SplitStrategy)}
+                className="px-3 py-2 rounded-lg border bg-white dark:bg-gray-700 border-gray-300 dark:border-gray-600 text-sm"
+              >
+                <option value="even">{t('strategy.even')}</option>
+                <option value="negative">{t('strategy.negative')}</option>
+                <option value="slightPositive">{t('strategy.slightPositive')}</option>
+                <option value="tenTenTen">{t('strategy.tenTenTen')}</option>
+                <option value="custom">{t('strategy.custom')}</option>
+              </select>
+            </div>
+
+            {/* 主滑杆：后半程快 X 秒 / 每单位（对匀速模式无效） */}
+            <div className="space-y-2">
+              <div className="flex items-center justify-between text-xs text-gray-600 dark:text-gray-400">
+                <span>{t('strategy.mainSliderLabel')}</span>
+                <span className="font-mono">
+                  {t('strategy.mainSliderValue', {
+                    value: splitStrengthSeconds,
+                    unit: unit === 'km' ? t('units.perKm') : t('units.perMi'),
+                  })}
+                </span>
+              </div>
+              <input
+                type="range"
+                min={0}
+                max={60}
+                step={1}
+                value={splitStrengthSeconds}
+                onChange={(e) => setSplitStrengthSeconds(parseInt(e.target.value, 10) || 0)}
+                className="w-full accent-lime-400"
+                disabled={splitStrategy === 'even'}
+              />
+            </div>
+
+            {/* 高级微调 */}
+            <div className="space-y-2">
+              <button
+                type="button"
+                onClick={() => setShowAdvancedSplits((v) => !v)}
+                className="text-xs text-blue-600 dark:text-blue-400 hover:underline"
+              >
+                {showAdvancedSplits ? t('strategy.advancedHide') : t('strategy.advancedShow')}
+              </button>
+
+              {showAdvancedSplits && (
+                <div className="grid grid-cols-2 gap-3 text-xs">
+                  <div>
+                    <label className="block mb-1">{t('strategy.after5k')}</label>
+                    <input
+                      type="number"
+                      value={fineTuneAfter5k}
+                      onChange={(e) => setFineTuneAfter5k(parseFloat(e.target.value) || 0)}
+                      className="w-full px-2 py-1 rounded border bg-white dark:bg-gray-700 border-gray-300 dark:border-gray-600"
+                    />
+                  </div>
+                  <div>
+                    <label className="block mb-1">{t('strategy.after10k')}</label>
+                    <input
+                      type="number"
+                      value={fineTuneAfter10k}
+                      onChange={(e) => setFineTuneAfter10k(parseFloat(e.target.value) || 0)}
+                      className="w-full px-2 py-1 rounded border bg-white dark:bg-gray-700 border-gray-300 dark:border-gray-600"
+                    />
+                  </div>
+                  <div>
+                    <label className="block mb-1">{t('strategy.afterHalf')}</label>
+                    <input
+                      type="number"
+                      value={fineTuneAfterHalf}
+                      onChange={(e) => setFineTuneAfterHalf(parseFloat(e.target.value) || 0)}
+                      className="w-full px-2 py-1 rounded border bg-white dark:bg-gray-700 border-gray-300 dark:border-gray-600"
+                    />
+                  </div>
+                  <div>
+                    <label className="block mb-1">{t('strategy.after30k')}</label>
+                    <input
+                      type="number"
+                      value={fineTuneAfter30k}
+                      onChange={(e) => setFineTuneAfter30k(parseFloat(e.target.value) || 0)}
+                      className="w-full px-2 py-1 rounded border bg-white dark:bg-gray-700 border-gray-300 dark:border-gray-600"
+                    />
+                  </div>
+                  <div className="col-span-2 text-[10px] text-gray-500 dark:text-gray-500">
+                    {t('strategy.advancedHint')}
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
         </div>
 
         {/* 分段配速表格 */}
-        <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-xl">
-          <div className="h-96 overflow-y-auto">
+        <div className="rounded-2xl p-3 md:p-4 shadow-xl border border-blue-100 bg-gradient-to-br from-white via-white to-blue-50 dark:border-gray-700 dark:bg-gradient-to-br dark:from-gray-900 dark:via-gray-900 dark:to-gray-800">
+          <div className="max-h-[480px] overflow-y-auto">
             <SplitTable splits={splits} unit={unit} />
           </div>
         </div>

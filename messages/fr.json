@@ -20,6 +20,12 @@
     "perKm": "/ km",
     "perMi": "/ mi"
   },
+  "theme": {
+    "toggleToDark": "Passer en mode sombre",
+    "toggleToLight": "Passer en mode clair",
+    "dark": "Sombre",
+    "light": "Clair"
+  },
   "presets": {
     "title": "Distances Rapides",
     "5k": "5K",
