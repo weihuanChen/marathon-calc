@@ -35,10 +35,32 @@
     "50k": "50K"
   },
   "splits": {
-    "title": "Temps Intermédiaires",
+    "title": "Plan d'Allure (stratégies optionnelles)",
     "splitNumber": "Split #",
     "pacePerSplit": "Allure",
-    "cumulativeTime": "Temps Cumulé"
+    "cumulativeTime": "Temps Cumulé",
+    "view": {
+      "per1": "Chaque 1 km/mi",
+      "per5": "Chaque 5 km/mi",
+      "key": "Points de contrôle clés"
+    },
+    "summary": {
+      "frontHalf": "Première moitié",
+      "backHalf": "Deuxième moitié",
+      "time": "Temps",
+      "pace": "Allure moy. ({unit})"
+    },
+    "unitLabel": {
+      "km": "par km",
+      "mi": "par mi"
+    },
+    "lastChunk": {
+      "title": "Section décisive (derniers ~10 km)",
+      "subtitle": "Souvent là où les courses se gagnent ou se perdent. Surveillez ce segment.",
+      "distance": "Distance : {distance} {unit}",
+      "time": "Temps",
+      "pace": "Allure moy. ({unit})"
+    }
   },
   "indicators": {
     "distance": "Distance",
@@ -50,6 +72,24 @@
     "enterDistance": "Entrez la distance",
     "enterTime": "Entrez le temps",
     "enterPace": "Entrez l'allure"
+  },
+  "strategy": {
+    "label": "Stratégie d'allure",
+    "even": "Allure Régulière",
+    "negative": "Allure Négative",
+    "slightPositive": "Légèrement Positive",
+    "tenTenTen": "10-10-10 (conservateur-milieu-fin)",
+    "custom": "Personnalisée",
+    "mainSliderLabel": "Deuxième moitié vs première moitié (en secondes par unité)",
+    "mainSliderValue": "{value}s {unit} plus rapide en deuxième moitié",
+    "advancedShow": "Réglage fin avancé des splits",
+    "advancedHide": "Masquer le réglage avancé",
+    "after5k": "Après 5K : % plus lent (+) / plus rapide (-)",
+    "after10k": "Après 10K : % plus lent (+) / plus rapide (-)",
+    "afterHalf": "Après la moitié : % plus lent (+) / plus rapide (-)",
+    "after30k": "Après 30K : % plus lent (+) / plus rapide (-)",
+    "advancedHint": "Ajustez finement l'allure après les points de contrôle clés. Les valeurs positives ralentissent les segments, les valeurs négatives les accélèrent légèrement.",
+    "help": "Les stratégies d'allure sont optionnelles. Les splits réguliers/négatifs conviennent aux coureurs expérimentés ou conservateurs, tandis que les splits légèrement positifs et 10-10-10 sont souvent plus adaptés à la plupart des coureurs amateurs."
   },
   "faq": {
     "title": "Questions Fréquemment Posées",

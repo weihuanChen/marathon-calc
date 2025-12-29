@@ -35,10 +35,32 @@
     "50k": "50K"
   },
   "splits": {
-    "title": "Tiempos Parciales",
+    "title": "Plan de Ritmo (estrategias opcionales)",
     "splitNumber": "Parcial #",
     "pacePerSplit": "Ritmo",
-    "cumulativeTime": "Tiempo Acumulado"
+    "cumulativeTime": "Tiempo Acumulado",
+    "view": {
+      "per1": "Cada 1 km/mi",
+      "per5": "Cada 5 km/mi",
+      "key": "Puntos de control clave"
+    },
+    "summary": {
+      "frontHalf": "Primera mitad",
+      "backHalf": "Segunda mitad",
+      "time": "Tiempo",
+      "pace": "Ritmo prom. ({unit})"
+    },
+    "unitLabel": {
+      "km": "por km",
+      "mi": "por mi"
+    },
+    "lastChunk": {
+      "title": "Sección decisiva (últimos ~10 km)",
+      "subtitle": "A menudo donde se ganan o pierden las carreras. Mantén un ojo en este segmento.",
+      "distance": "Distancia: {distance} {unit}",
+      "time": "Tiempo",
+      "pace": "Ritmo prom. ({unit})"
+    }
   },
   "indicators": {
     "distance": "Distancia",
@@ -50,6 +72,24 @@
     "enterDistance": "Ingrese la distancia",
     "enterTime": "Ingrese el tiempo",
     "enterPace": "Ingrese el ritmo"
+  },
+  "strategy": {
+    "label": "Estrategia de ritmo",
+    "even": "Ritmo Uniforme",
+    "negative": "Ritmo Negativo",
+    "slightPositive": "Ligeramente Positivo",
+    "tenTenTen": "10-10-10 (conservador-medio-final)",
+    "custom": "Personalizada",
+    "mainSliderLabel": "Segunda mitad vs primera mitad (en segundos por unidad)",
+    "mainSliderValue": "{value}s {unit} más rápido en la segunda mitad",
+    "advancedShow": "Ajuste fino avanzado de parciales",
+    "advancedHide": "Ocultar ajuste avanzado",
+    "after5k": "Después de 5K: % más lento (+) / más rápido (-)",
+    "after10k": "Después de 10K: % más lento (+) / más rápido (-)",
+    "afterHalf": "Después de la mitad: % más lento (+) / más rápido (-)",
+    "after30k": "Después de 30K: % más lento (+) / más rápido (-)",
+    "advancedHint": "Ajusta finamente el ritmo después de puntos de control clave. Los valores positivos hacen los segmentos más lentos, los valores negativos los hacen ligeramente más rápidos.",
+    "help": "Las estrategias de ritmo son opcionales. Los ritmos uniformes/negativos son adecuados para corredores experimentados o conservadores, mientras que los ritmos ligeramente positivos y 10-10-10 suelen ser más amigables para la mayoría de corredores aficionados."
   },
   "faq": {
     "title": "Preguntas Frecuentes",

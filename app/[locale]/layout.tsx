@@ -2,9 +2,13 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { Analytics } from '@vercel/analytics/react';
+import { IBM_Plex_Sans, Sora } from 'next/font/google';
 import "../globals.css";
 import { locales } from '@/i18n.config';
 import { LOCALE_TITLES, LOCALE_DESCRIPTIONS } from '@/lib/metadata';
+
+const display = Sora({ subsets: ['latin'], weight: ['600', '700', '800'], variable: '--font-display' });
+const body = IBM_Plex_Sans({ subsets: ['latin'], weight: ['400', '500', '600'], variable: '--font-body' });
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -43,8 +47,8 @@ export default async function LocaleLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale}>
-      <body className="antialiased">
+    <html lang={locale} className={`${display.variable} ${body.variable}`}>
+      <body className="antialiased font-body bg-surface text-ink">
         <NextIntlClientProvider messages={messages}>
           {children}
         </NextIntlClientProvider>
