@@ -199,39 +199,43 @@ export function SplitTable({ splits, unit }: SplitTableProps) {
       {/* 前半程 / 后半程 & 最后 7-12km 概览 */}
       {totalDistance > 0 && totalTimeSeconds > 0 && (
         <div className="mb-4 -mx-2 overflow-x-auto pb-2 text-xs md:text-sm">
-          <div className="grid gap-3 px-2 min-w-[720px] md:min-w-0 md:grid-cols-2 xl:grid-cols-3 items-stretch">
-            <div className="rounded-xl bg-gray-50 dark:bg-gray-900/50 px-4 py-3 min-w-[210px] min-h-[120px]">
-              <div className="font-semibold mb-2">{t('summary.frontHalf')}</div>
-              <div className="space-y-1">
-                <div className="flex items-baseline justify-between gap-2 text-gray-600 dark:text-gray-400">
-                  <span>{t('summary.time')}</span>
-                  <span className="font-mono">
-                    {formatTime(...Object.values(secondsToTime(frontTimeSeconds)) as [number, number, number])}
-                  </span>
+          <div className="grid gap-3 px-2 min-w-[640px] md:min-w-0 md:grid-cols-[1.2fr_0.8fr] items-stretch">
+            <div className="rounded-xl bg-gray-50 dark:bg-gray-900/50 px-4 py-3 min-w-[360px] min-h-[120px]">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                <div className="space-y-2">
+                  <div className="font-semibold">{t('summary.frontHalf')}</div>
+                  <div className="space-y-1">
+                    <div className="flex items-baseline justify-between gap-3 text-gray-600 dark:text-gray-400">
+                      <span className="whitespace-nowrap">{t('summary.time')}</span>
+                      <span className="font-mono">
+                        {formatTime(...Object.values(secondsToTime(frontTimeSeconds)) as [number, number, number])}
+                      </span>
+                    </div>
+                    <div className="flex items-baseline justify-between gap-3 text-gray-600 dark:text-gray-400">
+                      <span className="whitespace-nowrap">
+                        {t('summary.pace', { unit: unit === 'km' ? t('unitLabel.km') : t('unitLabel.mi') })}
+                      </span>
+                      <span className="font-mono whitespace-nowrap">{frontPaceStr}</span>
+                    </div>
+                  </div>
                 </div>
-                <div className="flex items-baseline justify-between gap-2 text-gray-600 dark:text-gray-400">
-                  <span>
-                    {t('summary.pace', { unit: unit === 'km' ? t('unitLabel.km') : t('unitLabel.mi') })}
-                  </span>
-                  <span className="font-mono">{frontPaceStr}</span>
-                </div>
-              </div>
-            </div>
 
-            <div className="rounded-xl bg-gray-50 dark:bg-gray-900/50 px-4 py-3 min-w-[210px] min-h-[120px]">
-              <div className="font-semibold mb-2">{t('summary.backHalf')}</div>
-              <div className="space-y-1">
-                <div className="flex items-baseline justify-between gap-2 text-gray-600 dark:text-gray-400">
-                  <span>{t('summary.time')}</span>
-                  <span className="font-mono">
-                    {formatTime(...Object.values(secondsToTime(backTimeSeconds)) as [number, number, number])}
-                  </span>
-                </div>
-                <div className="flex items-baseline justify-between gap-2 text-gray-600 dark:text-gray-400">
-                  <span>
-                    {t('summary.pace', { unit: unit === 'km' ? t('unitLabel.km') : t('unitLabel.mi') })}
-                  </span>
-                  <span className="font-mono">{backPaceStr}</span>
+                <div className="space-y-2">
+                  <div className="font-semibold">{t('summary.backHalf')}</div>
+                  <div className="space-y-1">
+                    <div className="flex items-baseline justify-between gap-3 text-gray-600 dark:text-gray-400">
+                      <span className="whitespace-nowrap">{t('summary.time')}</span>
+                      <span className="font-mono">
+                        {formatTime(...Object.values(secondsToTime(backTimeSeconds)) as [number, number, number])}
+                      </span>
+                    </div>
+                    <div className="flex items-baseline justify-between gap-3 text-gray-600 dark:text-gray-400">
+                      <span className="whitespace-nowrap">
+                        {t('summary.pace', { unit: unit === 'km' ? t('unitLabel.km') : t('unitLabel.mi') })}
+                      </span>
+                      <span className="font-mono whitespace-nowrap">{backPaceStr}</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
