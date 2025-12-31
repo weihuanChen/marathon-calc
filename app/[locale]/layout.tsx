@@ -17,9 +17,51 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
 
+  // 英语是主要语言,所有其他语言版本的 canonical URL 指向英语版本
+  const canonicalLocale = locale === 'en' ? '' : '/en';
+  const canonicalUrl = `https://marathonpacecalc.com${canonicalLocale}`;
+
+  // 当前语言页面的 URL
+  const currentLocaleUrl = locale === 'en' ? 'https://marathonpacecalc.com' : `https://marathonpacecalc.com/${locale}`;
+
+  const title = LOCALE_TITLES[locale] || LOCALE_TITLES.en;
+  const description = LOCALE_DESCRIPTIONS[locale] || LOCALE_DESCRIPTIONS.en;
+
   return {
-    title: LOCALE_TITLES[locale] || LOCALE_TITLES.en,
-    description: LOCALE_DESCRIPTIONS[locale] || LOCALE_DESCRIPTIONS.en,
+    title,
+    description,
+    alternates: {
+      canonical: canonicalUrl,
+      languages: {
+        'en': 'https://marathonpacecalc.com/en',
+        'zh': 'https://marathonpacecalc.com/zh',
+        'fr': 'https://marathonpacecalc.com/fr',
+        'es': 'https://marathonpacecalc.com/es',
+        'x-default': 'https://marathonpacecalc.com/en'
+      }
+    },
+    openGraph: {
+      title,
+      description,
+      url: currentLocaleUrl,
+      siteName: 'Marathon Pace Calculator',
+      locale: locale,
+      type: 'website',
+      images: [
+        {
+          url: '/og-image.png',
+          width: 1200,
+          height: 630,
+          alt: title
+        }
+      ]
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: ['/og-image.png'],
+    },
     icons: {
       icon: [
         { url: '/favicon.ico', type: 'image/x-icon' }
