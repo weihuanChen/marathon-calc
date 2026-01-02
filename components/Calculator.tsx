@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useId } from 'react';
 import { useTranslations } from 'next-intl';
 import {
   calculatePace,
@@ -28,6 +28,21 @@ type Unit = 'km' | 'mi';
 
 export function Calculator() {
   const t = useTranslations();
+  const idPrefix = useId();
+  const fieldIds = {
+    distance: `${idPrefix}-distance`,
+    hours: `${idPrefix}-hours`,
+    minutes: `${idPrefix}-minutes`,
+    seconds: `${idPrefix}-seconds`,
+    paceMinutes: `${idPrefix}-pace-minutes`,
+    paceSeconds: `${idPrefix}-pace-seconds`,
+    splitStrategy: `${idPrefix}-split-strategy`,
+    splitStrength: `${idPrefix}-split-strength`,
+    fineTuneAfter5k: `${idPrefix}-after-5k`,
+    fineTuneAfter10k: `${idPrefix}-after-10k`,
+    fineTuneAfterHalf: `${idPrefix}-after-half`,
+    fineTuneAfter30k: `${idPrefix}-after-30k`,
+  };
 
   // 状态管理
   const [mode, setMode] = useState<CalculationMode>('pace');
@@ -249,7 +264,7 @@ export function Calculator() {
         {/* 输入区域 */}
         <div className="rounded-2xl p-4 md:p-6 shadow-xl space-y-6 border border-lime-100 bg-gradient-to-br from-white via-white to-lime-50 dark:border-gray-700 dark:bg-gradient-to-br dark:from-gray-900 dark:via-gray-900 dark:to-gray-800">
           <div className="flex justify-between items-center">
-            <h3 className="text-xl font-bold">{t('title')}</h3>
+            <h2 className="text-xl font-bold">{t('title')}</h2>
             <button
               onClick={toggleUnit}
               className="flex items-center gap-2 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition"
@@ -261,9 +276,12 @@ export function Calculator() {
 
           {/* 距离输入 */}
           <div>
-            <label className="block text-sm font-medium mb-2">{t('labels.distance')}</label>
+            <label className="block text-sm font-medium mb-2" htmlFor={fieldIds.distance}>
+              {t('labels.distance')}
+            </label>
             <input
               type="number"
+              id={fieldIds.distance}
               value={distance}
               onChange={(e) => setDistance(e.target.value)}
               disabled={mode === 'distance'}
@@ -290,93 +308,123 @@ export function Calculator() {
           </div>
 
           {/* 时间输入 */}
-          <div>
-            <label className="block text-sm font-medium mb-2">{t('labels.time')}</label>
+          <fieldset>
+            <legend className="block text-sm font-medium mb-2">{t('labels.time')}</legend>
             <div className="grid grid-cols-3 gap-4">
-              <input
-                type="number"
-                value={hours}
-                onChange={(e) => setHours(e.target.value)}
-                disabled={mode === 'time'}
-                placeholder={t('labels.hours')}
-                className={`px-4 py-3 rounded-lg border-2 ${
-                  mode === 'time'
-                    ? 'bg-lime-100 dark:bg-lime-900/30 border-lime-400 font-bold'
-                    : 'bg-white dark:bg-gray-700 border-gray-300 dark:border-gray-600'
-                }`}
-                min="0"
-              />
-              <input
-                type="number"
-                value={minutes}
-                onChange={(e) => setMinutes(e.target.value)}
-                disabled={mode === 'time'}
-                placeholder={t('labels.minutes')}
-                className={`px-4 py-3 rounded-lg border-2 ${
-                  mode === 'time'
-                    ? 'bg-lime-100 dark:bg-lime-900/30 border-lime-400 font-bold'
-                    : 'bg-white dark:bg-gray-700 border-gray-300 dark:border-gray-600'
-                }`}
-                min="0"
-                max="59"
-              />
-              <input
-                type="number"
-                value={seconds}
-                onChange={(e) => setSeconds(e.target.value)}
-                disabled={mode === 'time'}
-                placeholder={t('labels.seconds')}
-                className={`px-4 py-3 rounded-lg border-2 ${
-                  mode === 'time'
-                    ? 'bg-lime-100 dark:bg-lime-900/30 border-lime-400 font-bold'
-                    : 'bg-white dark:bg-gray-700 border-gray-300 dark:border-gray-600'
-                }`}
-                min="0"
-                max="59"
-              />
+              <div className="space-y-1">
+                <label className="sr-only" htmlFor={fieldIds.hours}>
+                  {t('labels.hours')}
+                </label>
+                <input
+                  type="number"
+                  id={fieldIds.hours}
+                  value={hours}
+                  onChange={(e) => setHours(e.target.value)}
+                  disabled={mode === 'time'}
+                  placeholder={t('labels.hours')}
+                  className={`px-4 py-3 rounded-lg border-2 ${
+                    mode === 'time'
+                      ? 'bg-lime-100 dark:bg-lime-900/30 border-lime-400 font-bold'
+                      : 'bg-white dark:bg-gray-700 border-gray-300 dark:border-gray-600'
+                  }`}
+                  min="0"
+                />
+              </div>
+              <div className="space-y-1">
+                <label className="sr-only" htmlFor={fieldIds.minutes}>
+                  {t('labels.minutes')}
+                </label>
+                <input
+                  type="number"
+                  id={fieldIds.minutes}
+                  value={minutes}
+                  onChange={(e) => setMinutes(e.target.value)}
+                  disabled={mode === 'time'}
+                  placeholder={t('labels.minutes')}
+                  className={`px-4 py-3 rounded-lg border-2 ${
+                    mode === 'time'
+                      ? 'bg-lime-100 dark:bg-lime-900/30 border-lime-400 font-bold'
+                      : 'bg-white dark:bg-gray-700 border-gray-300 dark:border-gray-600'
+                  }`}
+                  min="0"
+                  max="59"
+                />
+              </div>
+              <div className="space-y-1">
+                <label className="sr-only" htmlFor={fieldIds.seconds}>
+                  {t('labels.seconds')}
+                </label>
+                <input
+                  type="number"
+                  id={fieldIds.seconds}
+                  value={seconds}
+                  onChange={(e) => setSeconds(e.target.value)}
+                  disabled={mode === 'time'}
+                  placeholder={t('labels.seconds')}
+                  className={`px-4 py-3 rounded-lg border-2 ${
+                    mode === 'time'
+                      ? 'bg-lime-100 dark:bg-lime-900/30 border-lime-400 font-bold'
+                      : 'bg-white dark:bg-gray-700 border-gray-300 dark:border-gray-600'
+                  }`}
+                  min="0"
+                  max="59"
+                />
+              </div>
             </div>
-          </div>
+          </fieldset>
 
           {/* 配速输入 */}
-          <div>
-            <label className="block text-sm font-medium mb-2">
+          <fieldset>
+            <legend className="block text-sm font-medium mb-2">
               {t('labels.pace')} ({unit === 'km' ? t('units.perKm') : t('units.perMi')})
-            </label>
+            </legend>
             <div className="grid grid-cols-2 gap-4">
-              <input
-                type="number"
-                value={paceMinutes}
-                onChange={(e) => setPaceMinutes(e.target.value)}
-                disabled={mode === 'pace'}
-                placeholder={t('labels.minutes')}
-                className={`px-4 py-3 rounded-lg border-2 ${
-                  mode === 'pace'
-                    ? 'bg-lime-100 dark:bg-lime-900/30 border-lime-400 font-bold'
-                    : 'bg-white dark:bg-gray-700 border-gray-300 dark:border-gray-600'
-                }`}
-                min="0"
-              />
-              <input
-                type="number"
-                value={paceSeconds}
-                onChange={(e) => setPaceSeconds(e.target.value)}
-                disabled={mode === 'pace'}
-                placeholder={t('labels.seconds')}
-                className={`px-4 py-3 rounded-lg border-2 ${
-                  mode === 'pace'
-                    ? 'bg-lime-100 dark:bg-lime-900/30 border-lime-400 font-bold'
-                    : 'bg-white dark:bg-gray-700 border-gray-300 dark:border-gray-600'
-                }`}
-                min="0"
-                max="59"
-              />
+              <div className="space-y-1">
+                <label className="sr-only" htmlFor={fieldIds.paceMinutes}>
+                  {t('labels.minutes')}
+                </label>
+                <input
+                  type="number"
+                  id={fieldIds.paceMinutes}
+                  value={paceMinutes}
+                  onChange={(e) => setPaceMinutes(e.target.value)}
+                  disabled={mode === 'pace'}
+                  placeholder={t('labels.minutes')}
+                  className={`px-4 py-3 rounded-lg border-2 ${
+                    mode === 'pace'
+                      ? 'bg-lime-100 dark:bg-lime-900/30 border-lime-400 font-bold'
+                      : 'bg-white dark:bg-gray-700 border-gray-300 dark:border-gray-600'
+                  }`}
+                  min="0"
+                />
+              </div>
+              <div className="space-y-1">
+                <label className="sr-only" htmlFor={fieldIds.paceSeconds}>
+                  {t('labels.seconds')}
+                </label>
+                <input
+                  type="number"
+                  id={fieldIds.paceSeconds}
+                  value={paceSeconds}
+                  onChange={(e) => setPaceSeconds(e.target.value)}
+                  disabled={mode === 'pace'}
+                  placeholder={t('labels.seconds')}
+                  className={`px-4 py-3 rounded-lg border-2 ${
+                    mode === 'pace'
+                      ? 'bg-lime-100 dark:bg-lime-900/30 border-lime-400 font-bold'
+                      : 'bg-white dark:bg-gray-700 border-gray-300 dark:border-gray-600'
+                  }`}
+                  min="0"
+                  max="59"
+                />
+              </div>
             </div>
-          </div>
+          </fieldset>
 
           {/* 分段策略选择 */}
           <div className="border-t border-gray-200 dark:border-gray-700 pt-4 mt-2 space-y-4">
             <div className="flex items-center justify-between gap-4">
-              <label className="text-sm font-medium flex items-center gap-1">
+              <label className="text-sm font-medium flex items-center gap-1" htmlFor={fieldIds.splitStrategy}>
                 <span>{t('strategy.label')}</span>
                 <span
                   className="inline-flex items-center justify-center w-4 h-4 rounded-full bg-gray-200 dark:bg-gray-700 text-[10px] text-gray-700 dark:text-gray-200 cursor-help"
@@ -386,6 +434,7 @@ export function Calculator() {
                 </span>
               </label>
               <select
+                id={fieldIds.splitStrategy}
                 value={splitStrategy}
                 onChange={(e) => setSplitStrategy(e.target.value as SplitStrategy)}
                 className="px-3 py-2 rounded-lg border bg-white dark:bg-gray-700 border-gray-300 dark:border-gray-600 text-sm"
@@ -401,7 +450,7 @@ export function Calculator() {
             {/* 主滑杆：后半程快 X 秒 / 每单位（对匀速模式无效） */}
             <div className="space-y-2">
               <div className="flex items-center justify-between text-xs text-gray-600 dark:text-gray-400">
-                <span>{t('strategy.mainSliderLabel')}</span>
+                <span id={fieldIds.splitStrength}>{t('strategy.mainSliderLabel')}</span>
                 <span className="font-mono">
                   {t('strategy.mainSliderValue', {
                     value: splitStrengthSeconds,
@@ -418,6 +467,7 @@ export function Calculator() {
                 onChange={(e) => setSplitStrengthSeconds(parseInt(e.target.value, 10) || 0)}
                 className="w-full accent-lime-400"
                 disabled={splitStrategy === 'even'}
+                aria-labelledby={fieldIds.splitStrength}
               />
             </div>
 
@@ -434,36 +484,48 @@ export function Calculator() {
               {showAdvancedSplits && (
                 <div className="grid grid-cols-2 gap-3 text-xs">
                   <div>
-                    <label className="block mb-1">{t('strategy.after5k')}</label>
+                    <label className="block mb-1" htmlFor={fieldIds.fineTuneAfter5k}>
+                      {t('strategy.after5k')}
+                    </label>
                     <input
                       type="number"
+                      id={fieldIds.fineTuneAfter5k}
                       value={fineTuneAfter5k}
                       onChange={(e) => setFineTuneAfter5k(parseFloat(e.target.value) || 0)}
                       className="w-full px-2 py-1 rounded border bg-white dark:bg-gray-700 border-gray-300 dark:border-gray-600"
                     />
                   </div>
                   <div>
-                    <label className="block mb-1">{t('strategy.after10k')}</label>
+                    <label className="block mb-1" htmlFor={fieldIds.fineTuneAfter10k}>
+                      {t('strategy.after10k')}
+                    </label>
                     <input
                       type="number"
+                      id={fieldIds.fineTuneAfter10k}
                       value={fineTuneAfter10k}
                       onChange={(e) => setFineTuneAfter10k(parseFloat(e.target.value) || 0)}
                       className="w-full px-2 py-1 rounded border bg-white dark:bg-gray-700 border-gray-300 dark:border-gray-600"
                     />
                   </div>
                   <div>
-                    <label className="block mb-1">{t('strategy.afterHalf')}</label>
+                    <label className="block mb-1" htmlFor={fieldIds.fineTuneAfterHalf}>
+                      {t('strategy.afterHalf')}
+                    </label>
                     <input
                       type="number"
+                      id={fieldIds.fineTuneAfterHalf}
                       value={fineTuneAfterHalf}
                       onChange={(e) => setFineTuneAfterHalf(parseFloat(e.target.value) || 0)}
                       className="w-full px-2 py-1 rounded border bg-white dark:bg-gray-700 border-gray-300 dark:border-gray-600"
                     />
                   </div>
                   <div>
-                    <label className="block mb-1">{t('strategy.after30k')}</label>
+                    <label className="block mb-1" htmlFor={fieldIds.fineTuneAfter30k}>
+                      {t('strategy.after30k')}
+                    </label>
                     <input
                       type="number"
+                      id={fieldIds.fineTuneAfter30k}
                       value={fineTuneAfter30k}
                       onChange={(e) => setFineTuneAfter30k(parseFloat(e.target.value) || 0)}
                       className="w-full px-2 py-1 rounded border bg-white dark:bg-gray-700 border-gray-300 dark:border-gray-600"

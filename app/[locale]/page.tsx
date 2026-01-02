@@ -47,7 +47,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
               <Calculator />
             </div>
             <div className="min-w-[320px] rounded-3xl border border-gray-200/70 dark:border-gray-800/80 bg-gradient-to-b from-white/80 via-white/60 to-white/30 dark:from-slate-900/80 dark:via-slate-900/50 dark:to-slate-900/30 backdrop-blur-xl p-6 flex flex-col gap-4 shadow-[0_20px_60px_-40px_rgba(0,0,0,0.55)]">
-              <h3 className="font-display text-xl text-ink dark:text-white">Race day notes</h3>
+              <h2 className="font-display text-xl text-ink dark:text-white">Race day notes</h2>
               <ul className="space-y-3 text-sm text-muted">
                 <li className="flex gap-3"><Dot /> Lock pacing mode first, then adjust rings.</li>
                 <li className="flex gap-3"><Dot /> Use split strategies to model fatigue or negative splits.</li>
