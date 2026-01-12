@@ -1,0 +1,14 @@
+import { defineCloudflareConfig } from "@opennextjs/cloudflare";
+import r2IncrementalCache from "@opennextjs/cloudflare/overrides/incremental-cache/r2-incremental-cache";
+import d1NextTagCache from "@opennextjs/cloudflare/overrides/tag-cache/d1-next-tag-cache";
+import doQueue from "@opennextjs/cloudflare/overrides/queue/do-queue";
+
+// Cloudflare bindings expected:
+// - NEXT_INC_CACHE_R2_BUCKET (R2) for ISR incremental cache
+// - NEXT_TAG_CACHE_D1 (D1) for tag cache
+// - NEXT_CACHE_DO_QUEUE (Durable Object) for revalidation queue
+export default defineCloudflareConfig({
+  incrementalCache: r2IncrementalCache,
+  tagCache: d1NextTagCache,
+  queue: doQueue,
+});

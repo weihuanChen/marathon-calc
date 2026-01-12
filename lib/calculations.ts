@@ -84,6 +84,63 @@ export function convertPace(paceSeconds: number, fromUnit: 'km' | 'mi', toUnit: 
   return fromUnit === 'km' ? paceSeconds * KM_TO_MI : paceSeconds * MI_TO_KM;
 }
 
+// Race Phases 类型定义
+export type RacePhase = 'start' | 'cruise' | 'decision' | 'final';
+
+// RPE (Rate of Perceived Exertion) 相关类型
+export type RPERange = '2-3' | '4-6' | '7-8' | '9-10';
+export type BreathingStatus = 'fullSentences' | 'shortPhrases' | 'fewWords' | 'gasping';
+
+export interface RPEInfo {
+  rpe: RPERange;
+  breathing: BreathingStatus;
+  color: string;
+  intensityPercent: number; // 用于心率区间计算 (50-100%)
+  hrZone?: string; // 心率区间，如 "Zone 2" 或 "Zone 4"
+}
+
+export interface RacePhaseConfig {
+  phase: RacePhase;
+  startDistance: number; // 阶段起始距离（单位：km）
+  endDistance: number; // 阶段结束距离（单位：km）
+  paceOffsetSeconds: number; // 相对目标配速的偏差（秒/单位）
+  color: string; // 阶段颜色（用于UI）
+}
+
+// 补给点类型
+export type AidStationType = 'water' | 'energy';
+
+export interface AidStation {
+  distance: number; // 距离（单位：与unit一致）
+  type: AidStationType;
+}
+
+// 补给点配置（支持预设赛事）
+export interface AidStationConfig {
+  energyInterval: number; // 能量补给站间距（单位：km或mi）
+  waterInterval: number; // 饮水站间距（单位：km或mi）
+}
+
+// 预设赛事补给点配置（以km为单位）
+export const COURSE_AID_STATIONS: Record<string, AidStationConfig> = {
+  default: {
+    energyInterval: 5, // 每5km
+    waterInterval: 2.5, // 每2.5km
+  },
+  boston: {
+    energyInterval: 1.60934, // 每1英里
+    waterInterval: 1.60934, // 每1英里
+  },
+  beijing: {
+    energyInterval: 5,
+    waterInterval: 2.5,
+  },
+  shanghai: {
+    energyInterval: 5,
+    waterInterval: 2.5,
+  },
+};
+
 // 计算分段配速
 export interface SplitData {
   splitNumber: number;
@@ -91,6 +148,10 @@ export interface SplitData {
   cumulativeTime: string;
   // 从起点到当前分段末尾的累计距离（单位：与当前 unit 一致）
   distanceFromStart?: number;
+  // Race Phase 信息
+  phase?: RacePhase;
+  // 补给点信息
+  aidStations?: AidStation[];
 }
 
 // 分段配速策略类型
@@ -267,24 +328,96 @@ function applyFineTune(
 }
 
 /**
- * 基于“倍率模型”的分段配速计算：
+ * 基于"倍率模型"的分段配速计算（支持Race Phases + 策略微调）：
  * - 给每一段一个倍率 m_i
  * - 基准配速 p0 = T / Σ(d_i * m_i)
  * - 每段配速 p_i = p0 * m_i
  * - 每段用时 t_i = p_i * d_i
+ * 
+ * Race Phases 与策略的兼容性：
+ * - 如果是马拉松距离（42.195km），自动应用 Race Phases 作为基础框架
+ * - 用户可以通过 Pacing Strategy（even/negative/slightPositive/tenTenTen/custom）进行微调
+ * - 策略微调以 50% 的强度叠加在 Race Phases 基础上，保持阶段特征的同时允许个性化调整
+ * - 高级微调（fineTunePercent）在最后应用，提供更精细的控制
  */
 export function calculateStrategySplits(
   totalDistance: number,
   totalTimeSeconds: number,
-  options: SplitStrategyOptions
+  options: SplitStrategyOptions,
+  courseId?: string
 ): SplitData[] {
   if (totalDistance <= 0 || totalTimeSeconds <= 0) {
     return [];
   }
 
+  // 检查是否是马拉松距离，应用Race Phases
+  const totalDistanceKm = options.unit === 'km' ? totalDistance : convertDistance(totalDistance, 'mi', 'km');
+  const phases = getRacePhases(totalDistanceKm);
+  const useRacePhases = phases.length > 0;
+
+  // 获取补给点
+  const aidStations = getAidStations(totalDistance, options.unit, courseId);
+
   const segments = buildSegmentDistances(totalDistance);
-  const baseMultipliers = buildBaseMultipliers(segments.length, totalDistance, totalTimeSeconds, options);
-  const multipliers = applyFineTune(baseMultipliers, totalDistance, options.unit, options.fineTunePercent);
+  
+  // 计算倍率：Race Phases 作为基础，策略作为微调
+  let multipliers: number[];
+  
+  if (useRacePhases) {
+    // 使用Race Phases逻辑：基于阶段调整配速（作为基础）
+    const avgPace = totalTimeSeconds / totalDistance;
+    const racePhaseMultipliers = segments.map((segDist, index) => {
+      let cumulativeDist = 0;
+      for (let j = 0; j < index; j++) {
+        cumulativeDist += segments[j];
+      }
+      const segCenter = cumulativeDist + segDist / 2;
+      const segCenterKm = options.unit === 'km' ? segCenter : convertDistance(segCenter, 'mi', 'km');
+      
+      // 找到当前分段所属的阶段
+      const phase = getPhaseForDistance(segCenterKm, phases);
+      if (phase) {
+        const phaseConfig = phases.find((p) => p.phase === phase);
+        if (phaseConfig) {
+          // 将配速偏差转换为倍率
+          const paceOffset = phaseConfig.paceOffsetSeconds;
+          // 如果目标配速是avgPace，那么调整后的配速是 avgPace + paceOffset
+          // 倍率 = (avgPace + paceOffset) / avgPace = 1 + paceOffset / avgPace
+          return 1 + paceOffset / avgPace;
+        }
+      }
+      return 1; // 默认倍率
+    });
+    
+    // 计算策略调整倍率（作为微调）
+    const strategyMultipliers = buildBaseMultipliers(segments.length, totalDistance, totalTimeSeconds, options);
+    
+    // 将 Race Phases 和策略结合：
+    // 策略作为微调，应用 50% 的调整幅度，在保持 Race Phases 特征的同时允许策略调整
+    // 最终倍率 = race_phase_multiplier * (1 + (strategy_multiplier - 1) * blend_factor)
+    // 这样策略可以在 Race Phases 的基础上进行微调，而不完全覆盖阶段特征
+    const strategyBlendFactor = 0.5; // 策略微调强度（50%），用户可以通过调整策略强度来控制
+    multipliers = racePhaseMultipliers.map((raceMult, i) => {
+      const strategyMult = strategyMultipliers[i] ?? 1;
+      // 如果策略倍率是 1（even 或无效），不进行额外调整，保持 Race Phases 的原始倍率
+      if (Math.abs(strategyMult - 1) < 0.001) {
+        return raceMult;
+      }
+      // 将策略调整按比例应用到 Race Phases 基础上
+      // 例如：Race Phases = 1.02（慢2%），策略 = 1.05（慢5%）
+      // 调整 = (1.05 - 1) * 0.5 = 0.025
+      // 最终 = 1.02 * (1 + 0.025) = 1.0455（在 Race Phases 基础上再慢约2.5%）
+      const strategyAdjustment = (strategyMult - 1) * strategyBlendFactor;
+      return raceMult * (1 + strategyAdjustment);
+    });
+    
+    // 应用高级微调（如果有）
+    multipliers = applyFineTune(multipliers, totalDistance, options.unit, options.fineTunePercent);
+  } else {
+    // 非马拉松距离：使用原有策略逻辑
+    const baseMultipliers = buildBaseMultipliers(segments.length, totalDistance, totalTimeSeconds, options);
+    multipliers = applyFineTune(baseMultipliers, totalDistance, options.unit, options.fineTunePercent);
+  }
 
   // 计算加权距离和
   let weightedDistanceSum = 0;
@@ -312,11 +445,25 @@ export function calculateStrategySplits(
     cumulativeDistance += segDist;
     const time = secondsToTime(cumulativeSeconds);
 
+    // 确定当前分段的阶段
+    const segCenterKm = options.unit === 'km' 
+      ? cumulativeDistance 
+      : convertDistance(cumulativeDistance, 'mi', 'km');
+    const phase = useRacePhases ? getPhaseForDistance(segCenterKm, phases) : undefined;
+
+    // 查找当前分段内的补给点
+    const splitAidStations = aidStations.filter((station) => {
+      const prevDistance = i > 0 ? cumulativeDistance - segDist : 0;
+      return station.distance > prevDistance && station.distance <= cumulativeDistance;
+    });
+
     splits.push({
       splitNumber: i + 1,
       pacePerSplit: formatPace(segPace, options.unit),
       cumulativeTime: formatTime(time.hours, time.minutes, time.seconds),
       distanceFromStart: cumulativeDistance,
+      phase,
+      aidStations: splitAidStations.length > 0 ? splitAidStations : undefined,
     });
   }
 
@@ -381,4 +528,189 @@ export function getPaceColor(intensity: number): { from: string; to: string } {
     // 非常快：橙色到红色
     return { from: '#f97316', to: '#ef4444' }; // orange-500 to red-500
   }
+}
+
+// Race Phases 配置（以km为单位）
+export function getRacePhases(totalDistanceKm: number): RacePhaseConfig[] {
+  // 仅对马拉松距离（42.195km）应用阶段系统
+  const marathonDistance = 42.195;
+  const epsilon = 0.1; // 容差
+
+  if (Math.abs(totalDistanceKm - marathonDistance) > epsilon) {
+    // 非马拉松距离，返回空数组
+    return [];
+  }
+
+  return [
+    {
+      phase: 'start',
+      startDistance: 0,
+      endDistance: 5,
+      paceOffsetSeconds: -3.5, // 平均慢3.5秒（2-5秒范围的中点）
+      color: '#10b981', // 绿色 🟢
+    },
+    {
+      phase: 'cruise',
+      startDistance: 5,
+      endDistance: 30,
+      paceOffsetSeconds: 0, // 目标配速
+      color: '#3b82f6', // 蓝色 🔵
+    },
+    {
+      phase: 'decision',
+      startDistance: 30,
+      endDistance: 38,
+      paceOffsetSeconds: 2, // 慢2秒
+      color: '#facc15', // 黄色 🟡
+    },
+    {
+      phase: 'final',
+      startDistance: 38,
+      endDistance: 42.195,
+      paceOffsetSeconds: -5, // 快5秒
+      color: '#ef4444', // 红色 🔴
+    },
+  ];
+}
+
+// 获取当前距离所属的Race Phase
+export function getPhaseForDistance(distanceKm: number, phases: RacePhaseConfig[]): RacePhase | undefined {
+  for (const phase of phases) {
+    if (distanceKm >= phase.startDistance && distanceKm < phase.endDistance) {
+      return phase.phase;
+    }
+  }
+  // 如果距离刚好等于最后一个阶段的结束距离
+  if (phases.length > 0) {
+    const lastPhase = phases[phases.length - 1];
+    if (Math.abs(distanceKm - lastPhase.endDistance) < 0.01) {
+      return lastPhase.phase;
+    }
+  }
+  return undefined;
+}
+
+// 获取补给点
+export function getAidStations(
+  totalDistance: number,
+  unit: 'km' | 'mi',
+  courseId: string = 'default'
+): AidStation[] {
+  const config = COURSE_AID_STATIONS[courseId] || COURSE_AID_STATIONS.default;
+  
+  // 将配置转换为当前单位
+  const energyInterval = unit === 'km' 
+    ? config.energyInterval 
+    : convertDistance(config.energyInterval, 'km', 'mi');
+  const waterInterval = unit === 'km'
+    ? config.waterInterval
+    : convertDistance(config.waterInterval, 'km', 'mi');
+
+  const stations: AidStation[] = [];
+  const epsilon = 0.01; // 容差
+
+  // 生成能量补给站（每energyInterval）
+  for (let dist = energyInterval; dist <= totalDistance + epsilon; dist += energyInterval) {
+    if (dist <= totalDistance + epsilon) {
+      stations.push({
+        distance: Math.min(dist, totalDistance),
+        type: 'energy',
+      });
+    }
+  }
+
+  // 生成饮水站（每waterInterval）
+  for (let dist = waterInterval; dist <= totalDistance + epsilon; dist += waterInterval) {
+    if (dist <= totalDistance + epsilon) {
+      // 避免与能量补给站重复
+      const isDuplicate = stations.some(
+        (s) => Math.abs(s.distance - dist) < epsilon && s.type === 'energy'
+      );
+      if (!isDuplicate) {
+        stations.push({
+          distance: Math.min(dist, totalDistance),
+          type: 'water',
+        });
+      }
+    }
+  }
+
+  // 按距离排序
+  stations.sort((a, b) => a.distance - b.distance);
+
+  return stations;
+}
+
+// RPE 映射：将 Race Phase 映射到 RPE、呼吸状态和颜色
+export function getRPEInfo(phase: RacePhase | undefined): RPEInfo | null {
+  if (!phase) return null;
+
+  const mapping: Record<RacePhase, RPEInfo> = {
+    start: {
+      rpe: '2-3',
+      breathing: 'fullSentences',
+      color: '#10b981', // 绿色
+      intensityPercent: 50, // 50-60% 最大心率
+      hrZone: 'Zone 2',
+    },
+    cruise: {
+      rpe: '4-6',
+      breathing: 'shortPhrases',
+      color: '#3b82f6', // 蓝色
+      intensityPercent: 70, // 70-80% 最大心率
+      hrZone: 'Zone 3',
+    },
+    decision: {
+      rpe: '7-8',
+      breathing: 'fewWords',
+      color: '#facc15', // 黄色
+      intensityPercent: 85, // 85-90% 最大心率
+      hrZone: 'Zone 4',
+    },
+    final: {
+      rpe: '9-10',
+      breathing: 'gasping',
+      color: '#ef4444', // 红色
+      intensityPercent: 95, // 95-100% 最大心率
+      hrZone: 'Zone 5',
+    },
+  };
+
+  return mapping[phase] || null;
+}
+
+// 使用 Karvonen 公式计算目标心率
+// TargetHR = ((MaxHR - RestHR) × %Intensity) + RestHR
+// 标准5区心率区间：
+// Zone 1: 50-60% HRR, Zone 2: 60-70% HRR, Zone 3: 70-80% HRR, 
+// Zone 4: 80-90% HRR, Zone 5: 90-100% HRR
+export function calculateTargetHeartRate(
+  maxHR: number,
+  restHR: number,
+  intensityPercent: number
+): { min: number; max: number; zone?: string } {
+  const hrReserve = maxHR - restHR;
+  const targetHR = restHR + hrReserve * (intensityPercent / 100);
+  
+  // 计算心率区间范围（±3 bpm）
+  const min = Math.round(targetHR - 3);
+  const max = Math.round(targetHR + 3);
+
+  // 确定心率区间（基于HRR百分比）
+  let zone: string | undefined;
+  const hrPercent = intensityPercent;
+  
+  if (hrPercent < 60) {
+    zone = 'Zone 1-2';
+  } else if (hrPercent < 70) {
+    zone = 'Zone 2';
+  } else if (hrPercent < 80) {
+    zone = 'Zone 3';
+  } else if (hrPercent < 90) {
+    zone = 'Zone 4';
+  } else {
+    zone = 'Zone 5';
+  }
+
+  return { min, max, zone };
 }

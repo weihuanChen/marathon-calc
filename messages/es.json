@@ -44,11 +44,38 @@
       "per5": "Cada 5 km/mi",
       "key": "Puntos de control clave"
     },
+    "phases": {
+      "start": {
+        "name": "Conservar y Encontrar Ritmo",
+        "description": "Conserve & Find Rhythm / 拥挤与克制",
+        "range": "0-5km"
+      },
+      "cruise": {
+        "name": "Eficiencia de Crucero",
+        "description": "Cruising Efficiency / 巡航定速",
+        "range": "5-30km"
+      },
+      "decision": {
+        "name": "Zona de Decisión",
+        "description": "The Decision Zone / 心理博弈区",
+        "range": "30-38km"
+      },
+      "final": {
+        "name": "Vaciar el Depósito",
+        "description": "Empty the Tank / 空缸冲刺",
+        "range": "38-42.2km"
+      }
+    },
+    "aidStations": {
+      "water": "Estación de Agua",
+      "energy": "Estación de Energía"
+    },
     "summary": {
       "frontHalf": "Primera mitad",
       "backHalf": "Segunda mitad",
       "time": "Tiempo",
-      "pace": "Ritmo prom. ({unit})"
+      "pace": "Ritmo prom.",
+      "paceUnit": "{unit}"
     },
     "unitLabel": {
       "km": "por km",
@@ -59,7 +86,42 @@
       "subtitle": "A menudo donde se ganan o pierden las carreras. Mantén un ojo en este segmento.",
       "distance": "Distancia: {distance} {unit}",
       "time": "Tiempo",
-      "pace": "Ritmo prom. ({unit})"
+      "pace": "Ritmo prom.",
+      "paceUnit": "{unit}"
+    },
+    "rpe": {
+      "badgeTitle": "Esfuerzo Percibido (RPE): {rpe}",
+      "rpe23": "Fácil (2-3)",
+      "rpe46": "Moderado (4-6)",
+      "rpe78": "Duro (7-8)",
+      "rpe910": "Muy Duro (9-10)",
+      "breathing": {
+        "label": "Estado de Respiración",
+        "fullSentences": "Frases completas",
+        "shortPhrases": "Frases cortas",
+        "fewWords": "Palabras sueltas",
+        "gasping": "Sin poder hablar"
+      },
+      "heartRate": {
+        "label": "Frecuencia Cardíaca Objetivo"
+      },
+      "coachTip": {
+        "start": "{distance} {unit} 🟢 RPE 2-3: Frases completas. Puede que sientas que vas muy lento—mantén la disciplina. ¡Sigue así!",
+        "cruise": "{distance} {unit} 🔵 RPE 4-6: Frases cortas. Ritmo estable, empiezas a sudar pero bajo control. ¡Mantén el ritmo!",
+        "decision": "{distance} {unit} 🟡 RPE 7-8: Palabras sueltas. Respiración profunda, necesitas fuerza mental para mantener el ritmo. ¡Resiste!",
+        "final": "{distance} {unit} 🔴 RPE 9-10: Sin poder hablar. ¡Dalo todo! Este ritmo solo puede durar unos minutos más. ¡Empuja fuerte!"
+      },
+      "label": "RPE",
+      "coachVoice": {
+        "title": "RPE {rpe}",
+        "ariaLabel": "Ver consejo del entrenador para RPE {rpe}",
+        "message": {
+          "start": "RPE 2-3: Frases completas 🟢 Puede que sientas que vas muy lento—mantén la disciplina. ¡Sigue así!",
+          "cruise": "RPE 4-6: Frases cortas 🔵 Ritmo estable, empiezas a sudar pero bajo control. ¡Mantén el ritmo!",
+          "decision": "RPE 7-8: Palabras sueltas 🟡 Respiración profunda, necesitas fuerza mental para mantener el ritmo. ¡Resiste!",
+          "final": "RPE 9-10: Sin poder hablar 🔴 ¡Dalo todo! Este ritmo solo puede durar unos minutos más. ¡Empuja fuerte!"
+        }
+      }
     }
   },
   "indicators": {
@@ -67,6 +129,26 @@
     "time": "Tiempo",
     "easy": "Fácil",
     "fast": "Rápido"
+  },
+  "export": {
+    "title": "Centro de exportación",
+    "button": "Compartir póster",
+    "close": "Cerrar",
+    "download": "Descargar imagen",
+    "share": "Compartir",
+    "templates": {
+      "social": "Tarjeta social (1:1)",
+      "paceband": "Banda de ritmo (A4)"
+    },
+    "decisionZone": "Zona de decisión",
+    "scanToView": "Escanee el código QR para ver el plan completo",
+    "footer": "Escaneado desde {siteName}",
+    "shareTitle": "Plan de ritmo de maratón",
+    "shareText": "Consulta mi plan de ritmo de maratón",
+    "downloadFallback": "Por favor, tome una captura de pantalla manualmente",
+    "copiedToClipboard": "Imagen copiada al portapapeles",
+    "shareError": "Error al compartir, por favor intente descargar la imagen",
+    "generating": "Generando plan de ritmo exclusivo 2026..."
   },
   "placeholders": {
     "enterDistance": "Ingrese la distancia",
@@ -147,6 +229,76 @@
         "question": "¿Qué distancias admite la calculadora?",
         "answer": "Puede ingresar cualquier distancia, o usar los botones predefinidos para distancias comunes: 5K, 10K, Media Maratón (21.0975 km), Maratón (42.195 km) y 50K."
       }
+    }
+  },
+  "blogLink": "Blog de entrenamiento",
+  "raceDayNotes": {
+    "title": "Notas del día de carrera",
+    "tips": {
+      "lockPacing": "Bloquea primero el modo de ritmo, luego ajusta los anillos.",
+      "splitStrategies": "Usa estrategias de parciales para modelar fatiga o parciales negativos.",
+      "toggleUnits": "Alterna km / mi y observa cómo el plan se adapta instantáneamente."
+    },
+    "phases": {
+      "start": {
+        "title": "Fase de Inicio (0-5km)",
+        "advice": "Comienza de forma conservadora, 2-5 segundos más lento que el ritmo objetivo. Encuentra tu ritmo en la multitud y evita el agotamiento temprano."
+      },
+      "cruise": {
+        "title": "Fase de Crucero (5-30km)",
+        "advice": "Mantén el ritmo objetivo. Esta es la parte central de tu maratón. Mantén la calma, respira consistentemente y disfruta la carrera."
+      },
+      "decision": {
+        "title": "Zona de Decisión (30-38km)",
+        "advice": "Aquí es donde se prueba la fortaleza mental. El ritmo puede ralentizarse naturalmente ~2 segundos. Mantén el enfoque y no te rindas."
+      },
+      "final": {
+        "title": "Empuje Final (38-42.2km)",
+        "advice": "Últimos 4km - ¡vacía el depósito! Si te queda energía, apunta a 5 segundos más rápido que el ritmo objetivo. Aquí es donde tu entrenamiento da sus frutos."
+      }
+    },
+    "features": {
+      "draggableRings": {
+        "title": "Anillos arrastrables",
+        "description": "La distancia y el tiempo responden en tiempo real."
+      },
+      "splitTable": {
+        "title": "Tabla de parciales",
+        "description": "Puntos de control de ritmo exportables."
+      }
+    }
+  },
+  "blog": {
+    "meta": {
+      "title": "Blog de entrenamiento | Marathon Pace Studio",
+      "description": "Guías de ritmo listas para competir, plantillas de estrategia y notas de preparación para maratón.",
+      "kicker": "Ideas de ritmo"
+    },
+    "title": "Blog de entrenamiento",
+    "lead": "Planes de ritmo probados en carrera para maratonistas y corredores que debutan en la distancia.",
+    "readMore": "Leer artículo",
+    "readingTime": "{minutes} min de lectura",
+    "backToList": "Volver al blog",
+    "backToHome": "Volver al inicio",
+    "empty": {
+      "title": "Aún no hay artículos en este idioma",
+      "description": "Seguimos traduciendo estas guías. Cambia a inglés para leer los últimos artículos.",
+      "cta": "Ver artículos en inglés"
+    },
+    "pagination": {
+      "previous": "Anterior",
+      "next": "Siguiente",
+      "pageOf": "Página {page} de {total}",
+      "pageTitle": "Página {page}"
+    },
+    "cta": {
+      "title": "¿Listo para planear tu ritmo?",
+      "description": "Abre la calculadora para crear tu plan de carrera y objetivos de parciales en minutos.",
+      "action": "Abrir calculadora de ritmo"
+    },
+    "toc": {
+      "title": "En esta página",
+      "jump": "Ir a"
     }
   },
   "legal": {
@@ -439,6 +591,53 @@
     "contactCallout": {
       "title": "¿Hablamos?",
       "description": "Envía un correo a {email} con preguntas de privacidad o solicitudes de eliminación de mensajes que enviaste a {domain}."
+    }
+  },
+  "heartRate": {
+    "title": "Configuración de Frecuencia Cardíaca",
+    "optional": "Opcional",
+    "maxHR": "FC Máxima (lpm)",
+    "restHR": "FC en Reposo (lpm)",
+    "hint": "Ingrese su frecuencia cardíaca máxima y en reposo para calcular automáticamente las zonas de FC objetivo para cada fase."
+  },
+  "environment": {
+    "title": "Laboratorio Ambiental",
+    "presets": "Ajustes Rápidos",
+    "preset": {
+      "ideal": "Condiciones Ideales",
+      "hot_summer": "Verano Caluroso",
+      "windy_city": "Ciudad Ventosa",
+      "hilly_trail": "Sendero Montañoso"
+    },
+    "temp": "Temperatura",
+    "elevation": "Desnivel Positivo",
+    "wind": "Viento",
+    "surface": "Superficie",
+    "surfaces": {
+      "asphalt": "Asfalto",
+      "track": "Pista",
+      "cobblestone": "Adoquines",
+      "trail": "Sendero"
+    },
+    "basePace": "Ritmo Base",
+    "adjustedPace": "Ritmo Ajustado",
+    "effortBadge": "Esfuerzo Est.: {diff}",
+    "effortLabel": "Esfuerzo",
+    "summary": "Basado en {temp}°C y {surface}, tu esfuerzo percibido será equivalente a {adjustedPace}/{unit} en una carretera plana.",
+    "tempRange": {
+      "min": "-10°C",
+      "optimal": "10-15°C (Óptimo)",
+      "max": "45°C"
+    },
+    "windRange": {
+      "tailwind": "-30 (Viento a favor)",
+      "neutral": "0",
+      "headwind": "+30 (Viento en contra)"
+    },
+    "elevationRange": {
+      "min": "0m",
+      "mid": "1000m",
+      "max": "2000m"
     }
   },
   "support": {

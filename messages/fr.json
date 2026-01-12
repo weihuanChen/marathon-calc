@@ -44,11 +44,38 @@
       "per5": "Chaque 5 km/mi",
       "key": "Points de contrôle clés"
     },
+    "phases": {
+      "start": {
+        "name": "Conserver et Trouver le Rythme",
+        "description": "Conserve & Find Rhythm / 拥挤与克制",
+        "range": "0-5km"
+      },
+      "cruise": {
+        "name": "Efficacité de Croisière",
+        "description": "Cruising Efficiency / 巡航定速",
+        "range": "5-30km"
+      },
+      "decision": {
+        "name": "Zone de Décision",
+        "description": "The Decision Zone / 心理博弈区",
+        "range": "30-38km"
+      },
+      "final": {
+        "name": "Vider le Réservoir",
+        "description": "Empty the Tank / 空缸冲刺",
+        "range": "38-42.2km"
+      }
+    },
+    "aidStations": {
+      "water": "Point d'Eau",
+      "energy": "Point d'Énergie"
+    },
     "summary": {
       "frontHalf": "Première moitié",
       "backHalf": "Deuxième moitié",
       "time": "Temps",
-      "pace": "Allure moy. ({unit})"
+      "pace": "Allure moy.",
+      "paceUnit": "{unit}"
     },
     "unitLabel": {
       "km": "par km",
@@ -59,7 +86,42 @@
       "subtitle": "Souvent là où les courses se gagnent ou se perdent. Surveillez ce segment.",
       "distance": "Distance : {distance} {unit}",
       "time": "Temps",
-      "pace": "Allure moy. ({unit})"
+      "pace": "Allure moy.",
+      "paceUnit": "{unit}"
+    },
+    "rpe": {
+      "badgeTitle": "Effort Perçu (RPE): {rpe}",
+      "rpe23": "Facile (2-3)",
+      "rpe46": "Modéré (4-6)",
+      "rpe78": "Dur (7-8)",
+      "rpe910": "Très Dur (9-10)",
+      "breathing": {
+        "label": "État de Respiration",
+        "fullSentences": "Phrases complètes",
+        "shortPhrases": "Phrases courtes",
+        "fewWords": "Mots isolés",
+        "gasping": "Impossible de parler"
+      },
+      "heartRate": {
+        "label": "Fréquence Cardiaque Cible"
+      },
+      "coachTip": {
+        "start": "{distance} {unit} 🟢 RPE 2-3: Phrases complètes. Vous pourriez même avoir l'impression d'aller trop lentement—restez discipliné. Continuez!",
+        "cruise": "{distance} {unit} 🔵 RPE 4-6: Phrases courtes. Rythme stable, vous commencez à transpirer mais restez maître. Maintenez le rythme!",
+        "decision": "{distance} {unit} 🟡 RPE 7-8: Mots isolés. Respiration profonde, besoin de force mentale pour maintenir l'allure. Accrochez-vous!",
+        "final": "{distance} {unit} 🔴 RPE 9-10: Impossible de parler. Donnez tout! Cette allure ne peut durer que quelques minutes. Poussez fort!"
+      },
+      "label": "RPE",
+      "coachVoice": {
+        "title": "RPE {rpe}",
+        "ariaLabel": "Voir le conseil de l'entraîneur pour RPE {rpe}",
+        "message": {
+          "start": "RPE 2-3: Phrases complètes 🟢 Vous pourriez même avoir l'impression d'aller trop lentement—restez discipliné. Continuez!",
+          "cruise": "RPE 4-6: Phrases courtes 🔵 Rythme stable, vous commencez à transpirer mais restez maître. Maintenez le rythme!",
+          "decision": "RPE 7-8: Mots isolés 🟡 Respiration profonde, besoin de force mentale pour maintenir l'allure. Accrochez-vous!",
+          "final": "RPE 9-10: Impossible de parler 🔴 Donnez tout! Cette allure ne peut durer que quelques minutes. Poussez fort!"
+        }
+      }
     }
   },
   "indicators": {
@@ -67,6 +129,26 @@
     "time": "Temps",
     "easy": "Facile",
     "fast": "Rapide"
+  },
+  "export": {
+    "title": "Centre d'exportation",
+    "button": "Partager l'affiche",
+    "close": "Fermer",
+    "download": "Télécharger l'image",
+    "share": "Partager",
+    "templates": {
+      "social": "Carte sociale (1:1)",
+      "paceband": "Bande de rythme (A4)"
+    },
+    "decisionZone": "Zone de décision",
+    "scanToView": "Scannez le code QR pour voir le plan complet",
+    "footer": "Scanné depuis {siteName}",
+    "shareTitle": "Plan de rythme de marathon",
+    "shareText": "Découvrez mon plan de rythme de marathon",
+    "downloadFallback": "Veuillez faire une capture d'écran manuellement",
+    "copiedToClipboard": "Image copiée dans le presse-papiers",
+    "shareError": "Le partage a échoué, veuillez essayer de télécharger l'image",
+    "generating": "Génération du plan de rythme exclusif 2026..."
   },
   "placeholders": {
     "enterDistance": "Entrez la distance",
@@ -147,6 +229,76 @@
         "question": "Quelles distances le calculateur prend-il en charge ?",
         "answer": "Vous pouvez entrer n'importe quelle distance, ou utiliser les boutons prédéfinis pour les distances courantes : 5K, 10K, Semi-Marathon (21,0975 km), Marathon (42,195 km) et 50K."
       }
+    }
+  },
+  "blogLink": "Blog d'entraînement",
+  "raceDayNotes": {
+    "title": "Notes du jour de course",
+    "tips": {
+      "lockPacing": "Verrouillez d'abord le mode d'allure, puis ajustez les anneaux.",
+      "splitStrategies": "Utilisez des stratégies de splits pour modéliser la fatigue ou les splits négatifs.",
+      "toggleUnits": "Basculez km / mi et observez le plan s'adapter instantanément."
+    },
+    "phases": {
+      "start": {
+        "title": "Phase de Départ (0-5km)",
+        "advice": "Démarrez de manière conservatrice, 2-5 secondes plus lent que l'allure cible. Trouvez votre rythme dans la foule et évitez l'épuisement précoce."
+      },
+      "cruise": {
+        "title": "Phase de Croisière (5-30km)",
+        "advice": "Maintenez l'allure cible. C'est le cœur de votre marathon. Restez régulier, respirez de manière constante et profitez de la course."
+      },
+      "decision": {
+        "title": "Zone de Décision (30-38km)",
+        "advice": "C'est là que la force mentale est mise à l'épreuve. L'allure peut naturellement ralentir de ~2 secondes. Restez concentré et n'abandonnez pas."
+      },
+      "final": {
+        "title": "Poussée Finale (38-42.2km)",
+        "advice": "Derniers 4km - videz le réservoir ! Si vous avez encore de l'énergie, visez 5 secondes plus rapide que l'allure cible. C'est là que votre entraînement porte ses fruits."
+      }
+    },
+    "features": {
+      "draggableRings": {
+        "title": "Anneaux déplaçables",
+        "description": "La distance et le temps répondent en temps réel."
+      },
+      "splitTable": {
+        "title": "Tableau de splits",
+        "description": "Points de contrôle d'allure exportables."
+      }
+    }
+  },
+  "blog": {
+    "meta": {
+      "title": "Blog d'entraînement | Marathon Pace Studio",
+      "description": "Plans de rythme prêts pour la course, modèles de stratégie et notes de préparation marathon.",
+      "kicker": "Conseils de rythme"
+    },
+    "title": "Blog d'entraînement",
+    "lead": "Des plans de rythme éprouvés pour les marathoniens et les coureurs qui débutent sur longue distance.",
+    "readMore": "Lire l'article",
+    "readingTime": "{minutes} min de lecture",
+    "backToList": "Retour au blog",
+    "backToHome": "Retour à l'accueil",
+    "empty": {
+      "title": "Aucun article dans cette langue pour le moment",
+      "description": "Nous traduisons encore ces guides. Passez en anglais pour lire les articles récents.",
+      "cta": "Voir les articles en anglais"
+    },
+    "pagination": {
+      "previous": "Précédent",
+      "next": "Suivant",
+      "pageOf": "Page {page} sur {total}",
+      "pageTitle": "Page {page}"
+    },
+    "cta": {
+      "title": "Prêt à planifier votre allure ?",
+      "description": "Ouvrez le calculateur pour construire votre plan de course et vos allures en quelques minutes.",
+      "action": "Ouvrir le calculateur"
+    },
+    "toc": {
+      "title": "Sur cette page",
+      "jump": "Aller à"
     }
   },
   "legal": {
@@ -439,6 +591,53 @@
     "contactCallout": {
       "title": "Besoin d'échanger ?",
       "description": "Écrivez à {email} pour toute question de confidentialité ou demande de suppression de messages envoyés à {domain}."
+    }
+  },
+  "heartRate": {
+    "title": "Paramètres de Fréquence Cardiaque",
+    "optional": "Optionnel",
+    "maxHR": "FC Max (bpm)",
+    "restHR": "FC au Repos (bpm)",
+    "hint": "Entrez votre fréquence cardiaque maximale et au repos pour calculer automatiquement les zones de FC cible pour chaque phase."
+  },
+  "environment": {
+    "title": "Labo Environnement",
+    "presets": "Préréglages Rapides",
+    "preset": {
+      "ideal": "Conditions Idéales",
+      "hot_summer": "Été Chaud",
+      "windy_city": "Ville Venteuse",
+      "hilly_trail": "Sentier Montagneux"
+    },
+    "temp": "Température",
+    "elevation": "Dénivelé",
+    "wind": "Vent",
+    "surface": "Surface",
+    "surfaces": {
+      "asphalt": "Asphalte",
+      "track": "Piste",
+      "cobblestone": "Pavés",
+      "trail": "Sentier"
+    },
+    "basePace": "Allure de Base",
+    "adjustedPace": "Allure Ajustée",
+    "effortBadge": "Effort Est.: {diff}",
+    "effortLabel": "Effort",
+    "summary": "Basé sur {temp}°C et {surface}, votre effort ressenti sera équivalent à {adjustedPace}/{unit} sur une route plate.",
+    "tempRange": {
+      "min": "-10°C",
+      "optimal": "10-15°C (Optimal)",
+      "max": "45°C"
+    },
+    "windRange": {
+      "tailwind": "-30 (Vent arrière)",
+      "neutral": "0",
+      "headwind": "+30 (Vent de face)"
+    },
+    "elevationRange": {
+      "min": "0m",
+      "mid": "1000m",
+      "max": "2000m"
     }
   },
   "support": {

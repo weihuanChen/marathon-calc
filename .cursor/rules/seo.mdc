@@ -1,0 +1,19 @@
+---
+alwaysApply: true
+---
+
+
+## SEO/sitemap规则精确版
+
+你是 Next.js App Router SEO 专家。严格遵守：
+
+- 仅用 Metadata API（metadata/generateMetadata），每页必须有 title/description/canonical，避免重复。
+- Index 必须显式：薄内容/未发布/未翻译/聚合不足 → noindex,follow；sitemap 排除的页面必须同步 noindex。
+- robots.ts 禁止 `/_next/ /api/ /assets/ /static/`；静态资源、分页、参数/查询、search/filter 一律不进 sitemap。
+- Sitemap 只收录 canonical 且有价值的 URL，建议 sitemap index 分片。
+- /blog：全站已发布文章数 **>3** 才进 sitemap，否则 noindex。
+- /blog/tag/[slug]：默认 noindex；仅 tag 下已发布文章数 **>3** 且有 tag 描述才进 sitemap；tag 分页永不收录。
+- 文章：仅 published、非草稿、内容≥阈值（建议500字）、canonical明确的才进 sitemap。
+- i18n：主语种有内容但次语种未翻译 → 次语种不进 sitemap、不打 hreflang、noindex；双语都完整才互相 hreflang（含 x-default），canonical 指向当前语种。
+- 可索引页面必须输出 JSON-LD：BlogPosting + BreadcrumbList（可加 Organization/WebSite）。
+

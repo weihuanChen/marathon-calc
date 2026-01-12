@@ -1,0 +1,59 @@
+{
+  // Cloudflare Worker config for OpenNext build output
+  "$schema": "https://raw.githubusercontent.com/cloudflare/workers-sdk/refs/heads/main/templates/worker/wrangler.schema.json",
+  "name": "marathoncalc",
+  "main": ".open-next/worker.js",
+  "compatibility_date": "2025-01-20",
+  "compatibility_flags": ["nodejs_compat"],
+  "workers_dev": true,
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
+  "build": {
+    "command": "npm run build:cf"
+  },
+  "r2_buckets": [
+    {
+      "binding": "NEXT_INC_CACHE_R2_BUCKET",
+      "bucket_name": "cache"
+      // Optional: add "preview_bucket_name" for preview environments
+    }
+  ],
+  "d1_databases": [
+    {
+      "binding": "NEXT_TAG_CACHE_D1",
+      "database_name": "marathoncalc",
+      "database_id": "e3cc5f59-7b1b-46f0-9952-33dc5a2739af"
+    }
+  ],
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "DO_QUEUE",
+        "class_name": "DOQueueHandler",
+        "script_name": "marathoncalc"
+      }
+    ]
+  },
+  // 迁移配置
+  "migrations": [
+    {
+      "tag": "v1",
+      "new_classes": ["DOQueueHandler", "DOShardedTagCache", "BucketCachePurge"]
+    }
+  ],
+  "services": [
+    {
+      "binding": "WORKER_SELF_REFERENCE",
+      "service": "marathoncalc"
+    }
+  ],
+  "vars": {
+    "NEXT_PRIVATE_RUNTIME_TARGET": "cloudflare",
+    "NEXT_PUBLIC_SITE_ID": "10",
+    "DIRECTUS_URL":"https://directus.lzyinglian.com/"
+    // Optional: "NEXT_INC_CACHE_R2_PREFIX": "dev/"
+  }
+  // Store secrets via `wrangler secret put`
+}

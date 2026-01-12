@@ -2,6 +2,7 @@ import { AgreementDisclaimer } from '@/components/AgreementDisclaimer';
 import { Link } from '@/i18n/routing';
 import { getTranslations } from 'next-intl/server';
 import { ArrowLeft, ShieldCheck } from 'lucide-react';
+import { locales } from '@/i18n.config';
 
 const DOMAIN = 'marathoncalc.com';
 const CONTACT_EMAIL = 'support@marathoncalc.com';
@@ -16,6 +17,10 @@ type Section = {
   title: string;
   items: SectionItem[];
 };
+
+export function generateStaticParams() {
+  return locales.map((locale) => ({ locale }));
+}
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;

@@ -44,11 +44,38 @@
       "per5": "每 5 公里",
       "key": "关键节点"
     },
+    "phases": {
+      "start": {
+        "name": "拥挤与克制",
+        "description": "Conserve & Find Rhythm / 拥挤与克制",
+        "range": "0-5km"
+      },
+      "cruise": {
+        "name": "巡航定速",
+        "description": "Cruising Efficiency / 巡航定速",
+        "range": "5-30km"
+      },
+      "decision": {
+        "name": "心理博弈区",
+        "description": "The Decision Zone / 心理博弈区",
+        "range": "30-38km"
+      },
+      "final": {
+        "name": "空缸冲刺",
+        "description": "Empty the Tank / 空缸冲刺",
+        "range": "38-42.2km"
+      }
+    },
+    "aidStations": {
+      "water": "饮水站",
+      "energy": "能量补给站"
+    },
     "summary": {
       "frontHalf": "前半程",
       "backHalf": "后半程",
       "time": "用时",
-      "pace": "平均配速（{unit}）"
+      "pace": "平均配速",
+      "paceUnit": "{unit}"
     },
     "unitLabel": {
       "km": "每公里",
@@ -59,7 +86,42 @@
       "subtitle": "通常是马拉松决胜段，很多人会在这里分出高下。",
       "distance": "距离：{distance} {unit}",
       "time": "用时",
-      "pace": "平均配速（{unit}）"
+      "pace": "平均配速",
+      "paceUnit": "{unit}"
+    },
+    "rpe": {
+      "badgeTitle": "主观用力感 (RPE): {rpe}",
+      "rpe23": "轻松 (2-3)",
+      "rpe46": "中等 (4-6)",
+      "rpe78": "困难 (7-8)",
+      "rpe910": "极难 (9-10)",
+      "breathing": {
+        "label": "呼吸状态",
+        "fullSentences": "完整长句",
+        "shortPhrases": "短句交流",
+        "fewWords": "单词蹦出",
+        "gasping": "无法言语"
+      },
+      "heartRate": {
+        "label": "目标心率"
+      },
+      "coachTip": {
+        "start": "第 {distance} {unit} 🟢 RPE 2-3：完整长句。甚至觉得跑太慢了，需要极度克制。保持耐心！",
+        "cruise": "第 {distance} {unit} 🔵 RPE 4-6：短句交流。稳定的韵律感，虽然开始出汗但能掌控。保持节奏！",
+        "decision": "第 {distance} {unit} 🟡 RPE 7-8：单词蹦出。呼吸深沉，需要意志力来维持原定配速。坚持住！",
+        "final": "第 {distance} {unit} 🔴 RPE 9-10：无法言语。全力以赴，这种配速只能再坚持几分钟。冲啊！"
+      },
+      "label": "RPE",
+      "coachVoice": {
+        "title": "RPE {rpe}",
+        "ariaLabel": "查看 RPE {rpe} 的教练提示",
+        "message": {
+          "start": "RPE 2-3：完整长句 🟢 甚至觉得跑太慢了，需要极度克制。保持耐心！",
+          "cruise": "RPE 4-6：短句交流 🔵 稳定的韵律感，虽然开始出汗但能掌控。保持节奏！",
+          "decision": "RPE 7-8：单词蹦出 🟡 呼吸深沉，需要意志力来维持原定配速。坚持住！",
+          "final": "RPE 9-10：无法言语 🔴 全力以赴，这种配速只能再坚持几分钟。冲啊！"
+        }
+      }
     }
   },
   "indicators": {
@@ -67,6 +129,26 @@
     "time": "时间",
     "easy": "轻松",
     "fast": "快速"
+  },
+  "export": {
+    "title": "导出中心",
+    "button": "分享海报",
+    "close": "关闭",
+    "download": "下载图片",
+    "share": "分享",
+    "templates": {
+      "social": "社交卡片 (1:1)",
+      "paceband": "配速带 (A4)"
+    },
+    "decisionZone": "决策区",
+    "scanToView": "扫描二维码查看完整计划",
+    "footer": "扫描自 {siteName}",
+    "shareTitle": "马拉松配速计划",
+    "shareText": "查看我的马拉松配速计划",
+    "downloadFallback": "请手动截图保存",
+    "copiedToClipboard": "图片已复制到剪贴板",
+    "shareError": "分享失败，请尝试下载图片",
+    "generating": "正在生成 2026 专属配速方案..."
   },
   "placeholders": {
     "enterDistance": "输入距离",
@@ -147,6 +229,76 @@
         "question": "计算器支持哪些距离？",
         "answer": "你可以输入任何距离，或使用预设按钮快速选择常见距离：5K、10K、半程马拉松（21.0975公里）、全程马拉松（42.195公里）和50K。"
       }
+    }
+  },
+  "blogLink": "训练博客",
+  "raceDayNotes": {
+    "title": "比赛日提示",
+    "tips": {
+      "lockPacing": "先锁定配速模式，再调整圆环。",
+      "splitStrategies": "使用分段策略来模拟疲劳或负分段。",
+      "toggleUnits": "切换公里/英里，实时查看计划调整。"
+    },
+    "phases": {
+      "start": {
+        "title": "起跑阶段 (0-5km)",
+        "advice": "起跑时保持克制，比目标配速慢2-5秒。在人群中找到节奏，避免过早消耗体力。"
+      },
+      "cruise": {
+        "title": "巡航阶段 (5-30km)",
+        "advice": "保持目标配速，这是马拉松的核心阶段。保持节奏，稳定呼吸，享受比赛。"
+      },
+      "decision": {
+        "title": "决策区 (30-38km)",
+        "advice": "这是最考验意志的阶段。配速可能会自然下降2秒左右，保持专注，不要放弃。"
+      },
+      "final": {
+        "title": "终点冲刺 (38-42.2km)",
+        "advice": "最后4公里，全力以赴！如果还有体力，可以比目标配速快5秒。这是你展示训练成果的时刻。"
+      }
+    },
+    "features": {
+      "draggableRings": {
+        "title": "可拖拽圆环",
+        "description": "距离和时间实时响应。"
+      },
+      "splitTable": {
+        "title": "分段表格",
+        "description": "可导出的配速检查点。"
+      }
+    }
+  },
+  "blog": {
+    "meta": {
+      "title": "训练博客 | Marathon Pace Studio",
+      "description": "比赛配速指南、策略模板与马拉松备赛笔记。",
+      "kicker": "配速洞察"
+    },
+    "title": "训练博客",
+    "lead": "基于实战的配速方案，帮助初马和备赛跑者更快进入状态。",
+    "readMore": "阅读文章",
+    "readingTime": "{minutes} 分钟阅读",
+    "backToList": "返回博客",
+    "backToHome": "返回首页",
+    "empty": {
+      "title": "该语言暂时没有内容",
+      "description": "内容还在翻译中，请切换到英文查看最新文章。",
+      "cta": "查看英文文章"
+    },
+    "pagination": {
+      "previous": "上一页",
+      "next": "下一页",
+      "pageOf": "第 {page} / {total} 页",
+      "pageTitle": "第 {page} 页"
+    },
+    "cta": {
+      "title": "准备好制定配速了吗？",
+      "description": "打开计算器，几分钟内生成比赛计划和分段目标。",
+      "action": "前往配速计算器"
+    },
+    "toc": {
+      "title": "本页目录",
+      "jump": "跳转到"
     }
   },
   "legal": {
@@ -439,6 +591,53 @@
     "contactCallout": {
       "title": "需要沟通？",
       "description": "如有隐私问题或希望删除你发送给 {domain} 的邮件，请联系 {email}。"
+    }
+  },
+  "heartRate": {
+    "title": "心率设置",
+    "optional": "可选",
+    "maxHR": "最大心率 (bpm)",
+    "restHR": "静息心率 (bpm)",
+    "hint": "输入最大心率和静息心率后，系统将自动计算每个阶段的目标心率区间。"
+  },
+  "environment": {
+    "title": "环境实验室",
+    "presets": "预设场景",
+    "preset": {
+      "ideal": "理想条件",
+      "hot_summer": "炎热夏季",
+      "windy_city": "城市强风",
+      "hilly_trail": "山地越野"
+    },
+    "temp": "气温",
+    "elevation": "累计爬升",
+    "wind": "风速 (正为逆风)",
+    "surface": "路面类型",
+    "surfaces": {
+      "asphalt": "柏油路",
+      "track": "塑胶跑道",
+      "cobblestone": "石板路",
+      "trail": "硬土/越野"
+    },
+    "basePace": "基准配速",
+    "adjustedPace": "调整后配速",
+    "effortBadge": "体感配速: {diff}",
+    "effortLabel": "体感",
+    "summary": "基于 {temp}°C 和 {surface}，你的体感配速将相当于平地上的 {adjustedPace}/{unit}。",
+    "tempRange": {
+      "min": "-10°C",
+      "optimal": "10-15°C (最佳)",
+      "max": "45°C"
+    },
+    "windRange": {
+      "tailwind": "-30 (顺风)",
+      "neutral": "0",
+      "headwind": "+30 (逆风)"
+    },
+    "elevationRange": {
+      "min": "0m",
+      "mid": "1000m",
+      "max": "2000m"
     }
   },
   "support": {

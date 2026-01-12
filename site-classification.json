@@ -1,0 +1,12 @@
+{
+  "site_id": "10",
+  "keywords_text": "Marathon Pace Calculator, Running Pace, Marathon Training, Pace Calculation, Running Time Calculator, Running Distance Calculator, Marathon Finish Time, Pace Strategy, Split Pace, Running Plan, Training Calculator, Race Pace, Running Tool",
+  "target_lang": "en",
+  "source": "directus:site_keywords",
+  "source_ref": "",
+  "domain": "https://marathoncalc.com",
+  "industry": "Sports & Fitness",
+  "sub_industry": "Suitable for running enthusiasts, marathon trainers, professional athletes, and fitness coaches, especially for users who need precise calculations of pace, finish time, and training distance. Ideal for personal training plan development, race strategy planning, running clubs, and sports training institutions.",
+  "site_type": "Sports Tool / Online Running Calculator",
+  "site_description": "Professional marathon pace calculator with three calculation modes (pace, time, distance). Features interactive dashboard with draggable rings for real-time parameter adjustment, live pace intensity indicators, and detailed split analysis data. Supports multiple languages (English, Chinese, Spanish, French) and responsive design, perfectly optimized for desktop and mobile devices. Helps runners quickly calculate training pace, finish time, and distance to create scientific marathon training plans."
+}

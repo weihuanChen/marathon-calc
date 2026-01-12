@@ -44,11 +44,38 @@
       "per5": "Every 5 km/mi",
       "key": "Key checkpoints"
     },
+    "phases": {
+      "start": {
+        "name": "Conserve & Find Rhythm",
+        "description": "Conserve & Find Rhythm / 拥挤与克制",
+        "range": "0-5km"
+      },
+      "cruise": {
+        "name": "Cruising Efficiency",
+        "description": "Cruising Efficiency / 巡航定速",
+        "range": "5-30km"
+      },
+      "decision": {
+        "name": "The Decision Zone",
+        "description": "The Decision Zone / 心理博弈区",
+        "range": "30-38km"
+      },
+      "final": {
+        "name": "Empty the Tank",
+        "description": "Empty the Tank / 空缸冲刺",
+        "range": "38-42.2km"
+      }
+    },
+    "aidStations": {
+      "water": "Water Station",
+      "energy": "Energy Station"
+    },
     "summary": {
       "frontHalf": "First half",
       "backHalf": "Second half",
       "time": "Time",
-      "pace": "Avg pace ({unit})"
+      "pace": "Avg pace",
+      "paceUnit": "{unit}"
     },
     "unitLabel": {
       "km": "per km",
@@ -59,7 +86,42 @@
       "subtitle": "Often where races are won or lost. Keep an eye on this segment.",
       "distance": "Distance: {distance} {unit}",
       "time": "Time",
-      "pace": "Avg pace ({unit})"
+      "pace": "Avg pace",
+      "paceUnit": "{unit}"
+    },
+    "rpe": {
+      "badgeTitle": "Rate of Perceived Exertion (RPE): {rpe}",
+      "rpe23": "Easy (2-3)",
+      "rpe46": "Moderate (4-6)",
+      "rpe78": "Hard (7-8)",
+      "rpe910": "Very Hard (9-10)",
+      "breathing": {
+        "label": "Breathing Status",
+        "fullSentences": "Full sentences",
+        "shortPhrases": "Short phrases",
+        "fewWords": "Few words",
+        "gasping": "Cannot speak"
+      },
+      "heartRate": {
+        "label": "Target Heart Rate"
+      },
+      "coachTip": {
+        "start": "{distance} {unit} 🟢 RPE 2-3: Full sentences. You might even feel too slow—stay disciplined! Keep it steady!",
+        "cruise": "{distance} {unit} 🔵 RPE 4-6: Short phrases. Steady rhythm, starting to sweat but in control. Stay consistent!",
+        "decision": "{distance} {unit} 🟡 RPE 7-8: Few words. Deep breathing, need mental strength to maintain pace. Hang in there!",
+        "final": "{distance} {unit} 🔴 RPE 9-10: Cannot speak. Give it all! This pace can only last a few more minutes. Push hard!"
+      },
+      "label": "RPE",
+      "coachVoice": {
+        "title": "RPE {rpe}",
+        "ariaLabel": "View coach tip for RPE {rpe}",
+        "message": {
+          "start": "RPE 2-3: Full sentences 🟢 You might even feel too slow—stay disciplined! Keep it steady!",
+          "cruise": "RPE 4-6: Short phrases 🔵 Steady rhythm, starting to sweat but in control. Stay consistent!",
+          "decision": "RPE 7-8: Few words 🟡 Deep breathing, need mental strength to maintain pace. Hang in there!",
+          "final": "RPE 9-10: Cannot speak 🔴 Give it all! This pace can only last a few more minutes. Push hard!"
+        }
+      }
     }
   },
   "indicators": {
@@ -67,6 +129,26 @@
     "time": "Time",
     "easy": "Easy",
     "fast": "Fast"
+  },
+  "export": {
+    "title": "Export Center",
+    "button": "Share Poster",
+    "close": "Close",
+    "download": "Download Image",
+    "share": "Share",
+    "templates": {
+      "social": "Social Card (1:1)",
+      "paceband": "Pace Band (A4)"
+    },
+    "decisionZone": "Decision Zone",
+    "scanToView": "Scan QR code to view full plan",
+    "footer": "Scanned from {siteName}",
+    "shareTitle": "Marathon Pace Plan",
+    "shareText": "Check out my marathon pace plan",
+    "downloadFallback": "Please take a screenshot manually",
+    "copiedToClipboard": "Image copied to clipboard",
+    "shareError": "Share failed, please try downloading the image",
+    "generating": "Generating 2026 Exclusive Pace Plan..."
   },
   "placeholders": {
     "enterDistance": "Enter distance",
@@ -147,6 +229,76 @@
         "question": "What distances does the calculator support?",
         "answer": "You can enter any distance, or use the preset buttons for common distances: 5K, 10K, Half Marathon (21.0975 km), Marathon (42.195 km), and 50K."
       }
+    }
+  },
+  "blogLink": "Training blog",
+  "raceDayNotes": {
+    "title": "Race day notes",
+    "tips": {
+      "lockPacing": "Lock pacing mode first, then adjust rings.",
+      "splitStrategies": "Use split strategies to model fatigue or negative splits.",
+      "toggleUnits": "Toggle km / mi and watch the plan adapt instantly."
+    },
+    "phases": {
+      "start": {
+        "title": "Start Phase (0-5km)",
+        "advice": "Start conservatively, 2-5 seconds slower than target pace. Find your rhythm in the crowd and avoid early energy depletion."
+      },
+      "cruise": {
+        "title": "Cruise Phase (5-30km)",
+        "advice": "Maintain target pace. This is the core of your marathon. Stay steady, breathe consistently, and enjoy the race."
+      },
+      "decision": {
+        "title": "Decision Zone (30-38km)",
+        "advice": "This is where mental toughness is tested. Pace may naturally slow by ~2 seconds. Stay focused and don't give up."
+      },
+      "final": {
+        "title": "Final Push (38-42.2km)",
+        "advice": "Last 4km - empty the tank! If you have energy left, aim for 5 seconds faster than target pace. This is where your training pays off."
+      }
+    },
+    "features": {
+      "draggableRings": {
+        "title": "Dragable rings",
+        "description": "Distance + time respond in real time."
+      },
+      "splitTable": {
+        "title": "Split table",
+        "description": "Exportable pacing checkpoints."
+      }
+    }
+  },
+  "blog": {
+    "meta": {
+      "title": "Training Blog | Marathon Pace Studio",
+      "description": "Race-ready pacing guides, strategy templates, and marathon prep notes.",
+      "kicker": "Pacing insights"
+    },
+    "title": "Training blog",
+    "lead": "Readable, race-tested pacing plans for marathoners and first-time distance runners.",
+    "readMore": "Read article",
+    "readingTime": "{minutes} min read",
+    "backToList": "Back to blog",
+    "backToHome": "Back to home",
+    "empty": {
+      "title": "No posts in this language yet",
+      "description": "We’re still translating these guides. Switch to English to read the latest articles.",
+      "cta": "Browse English posts"
+    },
+    "pagination": {
+      "previous": "Previous",
+      "next": "Next",
+      "pageOf": "Page {page} of {total}",
+      "pageTitle": "Page {page}"
+    },
+    "cta": {
+      "title": "Ready to plan your pace?",
+      "description": "Use the calculator to build your race plan and split targets in minutes.",
+      "action": "Open pace calculator"
+    },
+    "toc": {
+      "title": "On this page",
+      "jump": "Jump to"
     }
   },
   "legal": {
@@ -439,6 +591,53 @@
     "contactCallout": {
       "title": "Need to talk?",
       "description": "Email {email} with privacy questions or deletion requests for messages you have sent to {domain}."
+    }
+  },
+  "heartRate": {
+    "title": "Heart Rate Settings",
+    "optional": "Optional",
+    "maxHR": "Max HR (bpm)",
+    "restHR": "Rest HR (bpm)",
+    "hint": "Enter your max and resting heart rate to automatically calculate target HR zones for each phase."
+  },
+  "environment": {
+    "title": "Environment Lab",
+    "presets": "Quick Presets",
+    "preset": {
+      "ideal": "Ideal Conditions",
+      "hot_summer": "Hot Summer",
+      "windy_city": "Windy City",
+      "hilly_trail": "Hilly Trail"
+    },
+    "temp": "Temperature",
+    "elevation": "Elevation Gain",
+    "wind": "Wind Speed (Headwind)",
+    "surface": "Surface Type",
+    "surfaces": {
+      "asphalt": "Asphalt",
+      "track": "Track",
+      "cobblestone": "Cobbles",
+      "trail": "Trail"
+    },
+    "basePace": "Base Pace",
+    "adjustedPace": "Adjusted Pace",
+    "effortBadge": "Est. Effort: {diff}",
+    "effortLabel": "Effort",
+    "summary": "Based on {temp}°C and {surface}, your perceived effort will be equivalent to {adjustedPace}/{unit} on a flat road.",
+    "tempRange": {
+      "min": "-10°C",
+      "optimal": "10-15°C (Optimal)",
+      "max": "45°C"
+    },
+    "windRange": {
+      "tailwind": "-30 (Tailwind)",
+      "neutral": "0",
+      "headwind": "+30 (Headwind)"
+    },
+    "elevationRange": {
+      "min": "0m",
+      "mid": "1000m",
+      "max": "2000m"
     }
   },
   "support": {

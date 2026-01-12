@@ -1,7 +1,11 @@
 import type { MetadataRoute } from 'next';
+import { SITE_URL } from '@/lib/site';
 
 const DISALLOWED_PATHS = [
-  '/api/',        // API endpoints should not be indexed
+  '/_next/',
+  '/api/',
+  '/assets/',
+  '/static/',
 ];
 
 export default function robots(): MetadataRoute.Robots {
@@ -13,5 +17,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: DISALLOWED_PATHS,
       },
     ],
+    sitemap: `${SITE_URL}/sitemap.xml`,
   };
 }

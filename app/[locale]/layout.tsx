@@ -6,6 +6,7 @@ import { IBM_Plex_Sans, Sora } from 'next/font/google';
 import "../globals.css";
 import { locales } from '@/i18n.config';
 import { LOCALE_TITLES, LOCALE_DESCRIPTIONS } from '@/lib/metadata';
+import { SITE_URL } from '@/lib/site';
 
 const display = Sora({ subsets: ['latin'], weight: ['600', '700', '800'], variable: '--font-display' });
 const body = IBM_Plex_Sans({ subsets: ['latin'], weight: ['400', '500', '600'], variable: '--font-body' });
@@ -19,10 +20,10 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 
   // 英语是主要语言,所有其他语言版本的 canonical URL 指向英语版本
   const canonicalLocale = locale === 'en' ? '' : '/en';
-  const canonicalUrl = `https://marathonpacecalc.com${canonicalLocale}`;
+  const canonicalUrl = `${SITE_URL}${canonicalLocale}`;
 
   // 当前语言页面的 URL
-  const currentLocaleUrl = locale === 'en' ? 'https://marathonpacecalc.com' : `https://marathonpacecalc.com/${locale}`;
+  const currentLocaleUrl = locale === 'en' ? SITE_URL : `${SITE_URL}/${locale}`;
 
   const title = LOCALE_TITLES[locale] || LOCALE_TITLES.en;
   const description = LOCALE_DESCRIPTIONS[locale] || LOCALE_DESCRIPTIONS.en;
@@ -33,11 +34,11 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     alternates: {
       canonical: canonicalUrl,
       languages: {
-        'en': 'https://marathonpacecalc.com/en',
-        'zh': 'https://marathonpacecalc.com/zh',
-        'fr': 'https://marathonpacecalc.com/fr',
-        'es': 'https://marathonpacecalc.com/es',
-        'x-default': 'https://marathonpacecalc.com/en'
+        'en': `${SITE_URL}/en`,
+        'zh': `${SITE_URL}/zh`,
+        'fr': `${SITE_URL}/fr`,
+        'es': `${SITE_URL}/es`,
+        'x-default': `${SITE_URL}/en`
       }
     },
     openGraph: {

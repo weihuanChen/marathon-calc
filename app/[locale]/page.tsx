@@ -5,9 +5,11 @@ import { FAQ } from '@/components/FAQ';
 import { LanguageSelector } from '@/components/LanguageSelector';
 import { ThemeToggle } from '@/components/ThemeToggle';
 import { RunningIcon } from '@/components/RunningIcon';
+import { buildRacePhasesHowToStructuredData } from '@/lib/structured-data';
 
 export default async function Home({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
+  const structuredData = buildRacePhasesHowToStructuredData(locale);
 
   return (
     <main className="min-h-screen overflow-hidden relative bg-surface text-ink mesh-bg">
@@ -37,6 +39,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
             </div>
 
             <div className="flex items-center gap-3 self-start">
+              <BlogLinkButton locale={locale} />
               <LanguageSelector currentLocale={locale} />
               <ThemeToggle />
             </div>
@@ -46,24 +49,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
             <div className="min-w-0 rounded-3xl bg-white/80 dark:bg-black/50 with-grain backdrop-blur-xl ring-1 ring-gray-200/70 dark:ring-gray-800/80 shadow-[0_30px_80px_-40px_rgba(0,0,0,0.35)] p-4 md:p-6 lg:p-8">
               <Calculator />
             </div>
-            <div className="min-w-[320px] rounded-3xl border border-gray-200/70 dark:border-gray-800/80 bg-gradient-to-b from-white/80 via-white/60 to-white/30 dark:from-slate-900/80 dark:via-slate-900/50 dark:to-slate-900/30 backdrop-blur-xl p-6 flex flex-col gap-4 shadow-[0_20px_60px_-40px_rgba(0,0,0,0.55)]">
-              <h2 className="font-display text-xl text-ink dark:text-white">Race day notes</h2>
-              <ul className="space-y-3 text-sm text-muted">
-                <li className="flex gap-3"><Dot /> Lock pacing mode first, then adjust rings.</li>
-                <li className="flex gap-3"><Dot /> Use split strategies to model fatigue or negative splits.</li>
-                <li className="flex gap-3"><Dot /> Toggle km / mi and watch the plan adapt instantly.</li>
-              </ul>
-              <div className="mt-auto grid grid-cols-2 gap-3 text-xs text-muted">
-                <div className="rounded-2xl p-3 ring-1 ring-gray-200 dark:ring-gray-800 bg-white/80 dark:bg-black/30">
-                  <p className="font-semibold text-ink dark:text-white">Dragable rings</p>
-                  <p>Distance + time respond in real time.</p>
-                </div>
-                <div className="rounded-2xl p-3 ring-1 ring-gray-200 dark:ring-gray-800 bg-white/80 dark:bg-black/30">
-                  <p className="font-semibold text-ink dark:text-white">Split table</p>
-                  <p>Exportable pacing checkpoints.</p>
-                </div>
-              </div>
-            </div>
+            <RaceDayNotes />
           </div>
         </header>
 
@@ -73,6 +59,12 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
 
         <HomeFooter locale={locale} />
       </div>
+
+      {/* Race Phases HowTo 结构化数据 */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
     </main>
   );
 }
@@ -134,5 +126,47 @@ function Badge({ children }: { children: React.ReactNode }) {
     <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-ink/5 dark:bg-white/10 text-ink/80 dark:text-white/80 ring-1 ring-ink/10 dark:ring-white/10">
       {children}
     </span>
+  );
+}
+
+function BlogLinkButton({ locale }: { locale: string }) {
+  const t = useTranslations();
+
+  return (
+    <Link
+      href="/blog"
+      locale={locale}
+      className="inline-flex items-center gap-2 rounded-lg bg-white dark:bg-gray-800 px-4 py-2 text-sm font-semibold text-ink dark:text-white shadow-md border border-gray-200 dark:border-gray-700 transition hover:-translate-y-0.5 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-accent"
+    >
+      {t('blogLink')}
+      <span aria-hidden className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-accent/15 text-accent text-xs">
+        ↗
+      </span>
+    </Link>
+  );
+}
+
+function RaceDayNotes() {
+  const t = useTranslations('raceDayNotes');
+
+  return (
+    <div className="min-w-[320px] rounded-3xl border border-gray-200/70 dark:border-gray-800/80 bg-gradient-to-b from-white/80 via-white/60 to-white/30 dark:from-slate-900/80 dark:via-slate-900/50 dark:to-slate-900/30 backdrop-blur-xl p-6 flex flex-col gap-4 shadow-[0_20px_60px_-40px_rgba(0,0,0,0.55)]">
+      <h2 className="font-display text-xl text-ink dark:text-white">{t('title')}</h2>
+      <ul className="space-y-3 text-sm text-muted">
+        <li className="flex gap-3"><Dot /> {t('tips.lockPacing')}</li>
+        <li className="flex gap-3"><Dot /> {t('tips.splitStrategies')}</li>
+        <li className="flex gap-3"><Dot /> {t('tips.toggleUnits')}</li>
+      </ul>
+      <div className="mt-auto grid grid-cols-2 gap-3 text-xs text-muted">
+        <div className="rounded-2xl p-3 ring-1 ring-gray-200 dark:ring-gray-800 bg-white/80 dark:bg-black/30">
+          <p className="font-semibold text-ink dark:text-white">{t('features.draggableRings.title')}</p>
+          <p>{t('features.draggableRings.description')}</p>
+        </div>
+        <div className="rounded-2xl p-3 ring-1 ring-gray-200 dark:ring-gray-800 bg-white/80 dark:bg-black/30">
+          <p className="font-semibold text-ink dark:text-white">{t('features.splitTable.title')}</p>
+          <p>{t('features.splitTable.description')}</p>
+        </div>
+      </div>
+    </div>
   );
 }
